@@ -1,0 +1,30 @@
+<div class="custom-alert">
+  <div *ngFor="let message of messages;let i = index" id="{{'myModal' + i}}" class="modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <strong class="modal-title">{{message?.title}}</strong>
+          <!-- <button type="button" class="close" data-dismiss="modal" (click)="closeNotification(i)">&times;</button> -->
+        </div>
+        <div class="modal-body">
+          <p>{{message?.body}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="closeNotification(i,'deactivate')"
+            *ngIf="message.notificationType == '4'">
+            DEACTIVATE
+          </button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="closeNotification(i,'cancel')"
+            *ngIf="message.notificationType == '4'">
+            CANCEL
+          </button>
+          <button type="button" *ngIf="message.notificationType !== '4'" class="btn btn-default" data-dismiss="modal"
+            (click)="closeNotification(i,'')">OK</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" *ngIf="message.notificationType == '3'"
+            (click)="closeNotification(i,'')">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

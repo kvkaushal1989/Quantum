@@ -1,0 +1,23 @@
+<mat-form-field   [floatLabel]="'always'">
+    <!-- [floatLabel]="isFloatLabel" -->
+    <span *ngIf="isPrefix && prefixType === 'text'" matPrefix>{{prefixContent}} &nbsp;</span>
+    <mat-label>{{label}}</mat-label>
+    <mat-icon *ngIf="isPrefix && prefixType !== 'text'" matPrefix>{{prefixContent}}</mat-icon>
+    <input #inputElem = "ngModel"  [name]="name" [type]="type === 'password' && !hide ? 'password' : 'text'" matInput
+        [placeholder]="placeholder" [disabled]="isDisabled" [required]="isRequired" [(ngModel)]="defaultValue"
+        #textInput="ngModel" (input)="onUserInput(name,defaultValue)" (blur)="postInputData(name,defaultValue)" autofocus='on' autocomplete="off">
+    <span *ngIf="isSuffix && suffixType === 'text'" matSuffix>{{suffixContent}} &nbsp;</span>
+    <mat-icon *ngIf="isSuffix && suffixType !== 'text'" matSuffix>{{suffixContent}}</mat-icon>
+    <button class="btn" *ngIf="type === 'password'" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide">
+        <mat-icon>{{hide && type === 'password' ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    <mat-hint *ngIf="isHint">{{hintText}}</mat-hint>
+    
+</mat-form-field>
+<mat-error class="error-message" *ngIf="textInput.errors && inputElem.touched">{{textInput.errors? textInput.errors.required ? label + '   required' : '' : ''}}</mat-error>
+<!-- 
+<mat-form-field appearance="fill" [floatLabel]="'always'">
+    <mat-label>Both a label and a placeholder</mat-label>
+    <input matInput placeholder="Simple placeholder">
+  </mat-form-field> -->

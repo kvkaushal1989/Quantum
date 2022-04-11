@@ -1,0 +1,26 @@
+{
+  "Status": "Success",
+  "StatusCode": "GFS000001",
+  "Data": [
+    {
+      "customerimage": "",
+      "rblnr": "rbl001-001",
+      "MBL": "SBL20202N",
+      "blcnt": "1/25",
+      "manual": false,
+      "manualdt": "2020-07-27T12:44:05.2878242+05:30",
+      "uploaded": true,
+      "uploadeddt": "2020-07-27T12:44:05.2878242+05:30",
+      "wip": true,
+      "wipdt": "2020-07-27T12:44:05.2878242+05:30",
+      "loaded": true,
+      "loadeddt": "2020-07-27T12:44:05.2878242+05:30",
+      "draft": true,
+      "draftdt": "2020-07-27T12:44:05.2878242+05:30",
+      "micdta": false,
+      "micdtadt": null,
+      "print": true,
+      "printdt": "2020-07-27T12:44:05.2878242+05:30"
+    }
+  ]
+}

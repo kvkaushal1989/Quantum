@@ -1,0 +1,82 @@
+<!-- <app-side-bar [sideMenuDetails]="sideMenuDetails"></app-side-bar> -->
+<app-side-menu></app-side-menu>
+
+<app-nav-bar [navItems]="navItems" [navSubItems]="navSubItems"></app-nav-bar>
+<app-simple-notifications [messages]="simpleNotifications" [intervalPeriod]="23000"
+  [isNotification]="isSimpleNotification"></app-simple-notifications>
+<div class="container-fluid app-master-container" id="app_master">
+  <!--     
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-spin"></ngx-spinner>
+    <app-simple-notifications [messages]="simpleNotifications" [intervalPeriod]="23000" [isNotification]="isSimpleNotification"></app-simple-notifications> -->
+
+  <div class="main-area" id="main_area">
+    <div class="row">
+      <div class="col-md-12">
+        <app-notifications [messages]="notification" [type]="notification?.errorType"
+          (onNotificationClose)="changeNotificationStatus($event)" [intervalPeriod]="23000">
+        </app-notifications>
+        <router-outlet (activate)="changeOfRoutes()"></router-outlet>
+
+        <!-- <div class="float" mat-button [matMenuTriggerFor]="menu" (click)="getActiveUsers()">
+          <mat-icon class="help_icon mat-icon my-float">chat</mat-icon>
+          <mat-menu #menu="matMenu" backdropClass="custom_mat_chat">
+            <div *ngIf="userList.length">
+              <button mat-menu-item *ngFor="let m of userList" (click)="$event.stopPropagation();" class="btn_text_btn">
+                <basic-check-box type="checkbox" style="float: left;margin-top: 15px;" [(ngModel)]="m.sel_flag"
+                  (change)="checkAllSelected()">
+                </basic-check-box>
+                <img [src]="m.image" class="user_img">
+                <mat-icon class="active_status">fiber_manual_record</mat-icon> {{m.name}}
+              </button>
+            </div>
+            <div *ngIf="!userList.length">
+              <p class="active_userp">No Active Users </p>
+            </div>
+            <div class="action_div" (click)="$event.stopPropagation();" *ngIf="userList.length">
+              <button [disabled]="!flagValue">
+                <p (click)="getThread()">
+                  <span class="spinner-border spinner-border-sm spinner-style white_spin" *ngIf="isLoading"></span>
+                  <mat-icon class="help_icon mat-icon my-float" *ngIf="!isLoading">chat</mat-icon>
+                </p>
+              </button>
+              <button [disabled]="!flagValue">
+                <p (click)="redirectToVideo()">
+                  <span class="spinner-border spinner-border-sm spinner-style white_spin" *ngIf="videoLoading"></span>
+                  <mat-icon class="help_icon mat-icon my-float" *ngIf="!videoLoading">videocam</mat-icon>
+                </p>
+              </button>
+            </div>
+          </mat-menu>
+        </div> -->
+
+        <!-- <mat-icon class="help_icon mat-icon my-float" (click)="getThread()">chat</mat-icon>
+        <mat-icon class="help_icon mat-icon my-float" (click)="redirectToVideo()">videocam</mat-icon>
+        <button [disabled]="!flagValue">
+          <p (click)="redirectToVideo()">Start Chat</p>
+        </button> -->
+
+      </div>
+    </div>
+  </div>
+
+  <div class="right-bar">
+
+    <img src="assets/images/right-sidebar.png" widht="100%" height="auto">
+  </div>
+  <div class="common-footer" id="common_footer"></div>
+</div>
+<!-- [isNotification]="isNotification"  [type]="notification?.errorType"-->
+
+<!-- <h3 style="text-align: center;">
+  {{ message | async | json }}
+</h3> -->
+
+<app-basic-dailog></app-basic-dailog>
+<app-print-feature></app-print-feature>
+<!-- <app-share-feature></app-share-feature> -->
+
+<app-notification-dialog></app-notification-dialog>
+
+<app-restricted-access-popup></app-restricted-access-popup>
+
+<!-- <button (click)="redirectToVideo()">Start Call</button> -->

@@ -1,0 +1,222 @@
+
+@mixin transition($transition...) {
+	-moz-transition: $transition;
+	-o-transition: $transition;
+	-webkit-transition: $transition;
+	transition: $transition;
+}
+
+@mixin transition-property($property...) {
+	-moz-transition-property: $property;
+	-o-transition-property: $property;
+	-webkit-transition-property: $property;
+	transition-property: $property;
+}
+
+@mixin transition-duration($duration...) {
+	-moz-transition-property: $duration;
+	-o-transition-property: $duration;
+	-webkit-transition-property: $duration;
+	transition-property: $duration;
+}
+
+@mixin transition-timing-function($timing...) {
+	-moz-transition-timing-function: $timing;
+	-o-transition-timing-function: $timing;
+	-webkit-transition-timing-function: $timing;
+	transition-timing-function: $timing;
+}
+
+@mixin transition-delay($delay...) {
+	-moz-transition-delay: $delay;
+	-o-transition-delay: $delay;
+	-webkit-transition-delay: $delay;
+	transition-delay: $delay;
+}
+
+// generic transform
+@mixin transform($transforms) {
+	-moz-transform: $transforms;
+	-o-transform: $transforms;
+	-ms-transform: $transforms;
+	-webkit-transform: $transforms;
+	transform: $transforms;
+}
+
+// rotate
+@mixin rotate ($deg) {
+	@include transform(rotate(#{$deg}deg));
+}
+
+// scale
+@mixin scale($scale) {
+	@include transform(scale($scale));
+}
+
+// translate
+@mixin translate ($x, $y) {
+	@include transform(translate($x, $y));
+}
+
+// skew
+@mixin skew ($x, $y) {
+	@include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+//transform origin
+@mixin transform-origin ($origin) {
+	moz-transform-origin: $origin;
+	-o-transform-origin: $origin;
+	-ms-transform-origin: $origin;
+	-webkit-transform-origin: $origin;
+	transform-origin: $origin;
+}
+
+a {
+	text-decoration: none;
+	@include transition(all 0.6s ease);
+	&:hover {
+		@include transition(all 0.6s ease);
+	}
+}
+
+.app {
+	height: auto;
+}
+
+
+/* -------------
+Sidebar
+----------------*/
+.sidebar:hover,
+nav.sidebar-nav.expanded {
+  width: 250px;
+  overflow: visible;
+}
+
+.sidebar {
+	position: fixed; 
+	width: 80px;
+	height: 100vh;
+	left:0;
+	top: 0;
+	z-index: 99;
+	// overflow: hidden;
+	background-color: #00B8F1;
+	-webkit-transform: translateZ(0);
+	visibility: visible;
+	-webkit-backface-visibility: hidden;
+	header {
+		background-color: #09f;
+		width: 100%;
+		display: block;
+		padding: 0.75em 1em;
+	}
+}
+
+
+/* -------------
+Sidebar Nav
+----------------*/
+
+.sidebar-nav { 
+	margin-top: 60px;
+	background-color: #00B8F1;
+	height: 100%;
+	font-weight: 400;
+	font-size: 1.2em;
+	overflow: auto;
+	padding-bottom: 6em;
+	z-index: 9;
+	// overflow: hidden;
+	-webkit-transform: translateZ(0) scale(1, 1);
+	-webkit-transition: all .1s linear;
+	transition: all .1s linear;
+	-webkit-overflow-scrolling: touch;
+	ul {
+		list-style: none;
+		display: block;
+		padding: 0;
+		margin: 0;
+		li {
+			margin-left: 0;
+			padding-left: 0; 
+			display: inline-block;
+			width: 250px;
+			a {
+				color: rgba(255, 255, 255, 0.9);
+				font-size: 0.6em;
+				padding: 1.05em 1em;
+				position: relative;
+				display: block;
+				&:hover {
+					background-color: rgba(0, 0, 0, 0.9);
+					@include transition(all 0.6s ease);
+				} 
+				.nav-icon {
+					position: relative;
+					display: table-cell;
+					width: 80px; 
+					text-align: center;
+					vertical-align: middle;
+					font-size: 25px;
+				}
+				.nav-text {
+					position: relative;
+					display: table-cell;
+					vertical-align: middle;
+					width: 190px;
+					font-family: 'Titillium Web', sans-serif;
+				}
+			}
+
+			/* -------------Sidebar: icons----------------*/
+			i {
+				font-size: 1.6em;
+				padding-right: 0.5em;
+				width: 9em;
+				display: inline;
+				vertical-align: middle;
+			}
+		}
+	}
+
+	/* -------------Chev elements----------------*/
+	&>ul>li>a:after {
+		content: '\f125';
+		font-family: ionicons;
+		font-size: 0.5em;
+		width: 10px;
+		color: #fff;
+		position: absolute;
+		right: 0.75em;
+		top: 45%;
+	}
+
+	/* -------------Nav-Flyout----------------*/
+	& .nav-flyout {
+		position: absolute;
+		background-color: #080D11;
+		z-index: 9; 
+		left: .5em;
+		@include transform(translateX(100%));
+		@include transition(all 0.5s ease);
+		a:hover {
+			background-color: rgba(255, 255, 255, 0.05)
+		}
+	}
+
+	/* -------------Hover----------------*/
+	& ul>li:hover {
+		.nav-flyout {
+			@include transform(translateX(0));
+			@include transition(all 0.5s ease);
+		}
+	}
+}
+
+.side-nav-content{
+	position: absolute;
+	// left:80px;
+	// z-index: 99;
+}

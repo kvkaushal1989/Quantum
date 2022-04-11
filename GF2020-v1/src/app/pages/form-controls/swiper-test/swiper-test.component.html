@@ -1,0 +1,108 @@
+<div class="box-container" style="min-height: 800px;">
+    <div class="app-title">Simple example app for the ngx-swiper-wrapper</div>
+
+    <div class="info-container">
+        You can change the basic settings of the Swiper area by clicking the buttons on the controls pane.
+    </div>
+
+    <div class="horizontal-container">
+        <div class="vertical-container">
+            <div class="box-title">Controls</div>
+
+            <div class="action-container">
+                <div class="action-button" (click)='toggleType()'>{{(type == "component") ? "Switch to directive" : "Switch to component"}}</div>
+
+                <div class="action-button" (click)='toggleDirection()'>{{(config.direction == "horizontal") ? "Change to vertical" : "Change to horizontal"}}</div>
+
+                <div class="action-button" (click)='toggleSlidesPerView()'>Toggle slides per view</div>
+
+                <div class="action-button" (click)='toggleOverlayControls()'>Toggle overlay controls</div>
+
+                <div class="action-button" (click)='toggleKeyboardControl()'>{{config.keyboard ? "Disable arrow keys" : "Enable arrow keys"}}</div>
+
+                <div class="action-button" (click)='toggleMouseWheelControl()'>{{config.mousewheel ? "Disable mouse wheel" : "Enable mouse wheel"}}</div>
+            </div>
+        </div>
+
+        <div class="vertical-container">
+            <div class="box-title">Swiper</div>
+
+            <div class="content-container" style="height:200px">
+                <div class="swiper-container" [swiper]="config" (indexChange)="onIndexChange($event)" style="height:200px">
+
+                    <div class="swiper-wrapper">
+                        <div *ngFor="let slide of slides" class="swiper-slide">
+                            <div>
+                                {{slide}} d
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="swiper-scrollbar" [hidden]="config.scrollbar === false"></div>
+                    <div class="swiper-pagination" [hidden]="config.pagination === false"></div> -->
+
+                    <div class="swiper-button-prev" [hidden]="config.navigation === false"></div>
+                    <div class="swiper-button-next" [hidden]="config.navigation === false"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="box-container" style="min-height: 800px;">
+    <div class="app-title">Simple example app for the ngx-swiper-wrapper</div>
+
+    <div class="info-container">
+        You can change the basic settings of the Swiper area by clicking the buttons on the controls pane.
+    </div>
+
+    <div class="horizontal-container">
+        <div class="vertical-container">
+            <div class="box-title">Controls</div>
+
+            <div class="action-container">
+                <div class="action-button" (click)='toggleType()'>{{(type == "component") ? "Switch to directive" : "Switch to component"}}</div>
+
+                <div class="action-button" (click)='toggleDirection()'>{{(config.direction == "horizontal") ? "Change to vertical" : "Change to horizontal"}}</div>
+
+                <div class="action-button" (click)='toggleSlidesPerView()'>Toggle slides per view</div>
+
+                <div class="action-button" (click)='toggleOverlayControls()'>Toggle overlay controls</div>
+
+                <div class="action-button" (click)='toggleKeyboardControl()'>{{config.keyboard ? "Disable arrow keys" : "Enable arrow keys"}}</div>
+
+                <div class="action-button" (click)='toggleMouseWheelControl()'>{{config.mousewheel ? "Disable mouse wheel" : "Enable mouse wheel"}}</div>
+            </div>
+        </div>
+
+        <div class="vertical-container">
+            <div class="box-title">Swiper</div>
+
+            <div class="content-container" style="height:200px">
+                <swiper *ngIf="type == 'component' && show" class="swiper-container" [config]="config" (indexChange)="onIndexChange($event)">
+                    <div *ngFor="let slide of slides" class="swiper-slide">
+                        <div>
+                            {{slide}}
+                        </div>
+                    </div>
+                </swiper>
+
+                <div *ngIf="type == 'directive' && show" class="swiper-container" [swiper]="config" (indexChange)="onIndexChange($event)" style="height:200px">
+                    <div class="swiper-wrapper">
+                        <div *ngFor="let slide of slides" class="swiper-slide">
+                            <div>
+                                {{slide}} d
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-scrollbar" [hidden]="config.scrollbar === false"></div>
+                    <div class="swiper-pagination" [hidden]="config.pagination === false"></div>
+
+                    <div class="swiper-button-prev" [hidden]="config.navigation === false"></div>
+                    <div class="swiper-button-next" [hidden]="config.navigation === false"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

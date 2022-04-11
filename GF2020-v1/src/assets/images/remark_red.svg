@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14.128" height="14.835" viewBox="0 0 14.128 14.835">
+  <g id="Group_8035" data-name="Group 8035" transform="translate(-1322.5 -627.5)">
+    <g id="black-bubble-speech" transform="translate(1323 628)">
+      <g id="messenger" transform="translate(0 0)">
+        <path id="Path_3311" data-name="Path 3311" d="M11.815,0H1.313A1.317,1.317,0,0,0,0,1.313V13.128L2.626,10.5h9.19A1.317,1.317,0,0,0,13.128,9.19V1.313A1.317,1.317,0,0,0,11.815,0Z" transform="translate(0 0)" fill="#f44336" stroke="#f44336" stroke-width="1"/>
+      </g>
+    </g>
+    <g id="Rectangle_3538" data-name="Rectangle 3538" transform="translate(1326 632)" fill="#fff" stroke="#fff" stroke-width="1">
+      <rect width="8" height="1" stroke="none"/>
+      <rect x="0.5" y="0.5" width="7" fill="none"/>
+    </g>
+    <g id="Rectangle_3539" data-name="Rectangle 3539" transform="translate(1326 634)" fill="#fff" stroke="#fff" stroke-width="1">
+      <rect width="5" height="1" stroke="none"/>
+      <rect x="0.5" y="0.5" width="4" fill="none"/>
+    </g>
+  </g>
+</svg>

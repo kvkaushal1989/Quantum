@@ -1,0 +1,65 @@
+<section class="app side-menu" *ngIf="isSideMenu">
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img class="main-logo-gf" src="assets/images/logo.png" width="48px;" height="48px;">
+    </div>
+
+
+    <!-- <div class="menu-icon">
+       <img src="assets/images/menu-icon.png"><br>
+
+       <img style="padding-top:38px;" src="../assets/images/menu-icon.png"><br>
+       <img style="padding-top:38px;" src="../assets/images/menu-icon2.png"><br>
+
+       <img style="padding-top:38px;" src="../assets/images/menu-icon3.png"><br>
+       <img style="padding-top:38px;" src="../assets/images/menu-icon4.png"><br>
+     </div> -->
+
+    <nav class="sidebar-nav">
+      <ul>
+        <li *ngFor="let v of sideMenuDetails" routerLinkActive="active" (mouseover)="filterByModuleMenuFk(v.Id)">
+          <!-- [attr.href]="v.Url" -->
+          <a (click)="navigatePage(v)">
+            <i class="nav-icon ion-bag"></i>
+            <span class="nav-text">{{v.Name}}</span>
+          </a>
+          <!-- <ul class="nav-flyout">
+                <li *ngFor="let subMenuItem of v.Children">
+                  <a><i class="ion-ios-color-filter-outline"></i>{{subMenuItem.Name}}</a>
+                </li>
+            </ul> -->
+
+          <!-- <a class="nav-items" (click)="navigateMenu(v, $event)">
+              <i class="nav-icon ion-bag"></i> 
+              <span class="nav-text">{{v.Name}}</span>
+            </a>
+
+            <app-side-nav-content *ngIf="v.IsExpand" class="side-nav-content" [menuItems]=""></app-side-nav-content> -->
+
+        </li>
+      </ul>
+    </nav>
+
+
+
+
+    <span class="El-Futuro-logo"><img src="assets/images/El-Futuro-logo.png"></span>
+  </aside>
+</section>
+<!-- parent <li>
+            <a href="#"><i class="ion-bag"></i> <span>Shop</span></a>
+            <ul class="nav-flyout">
+              <li>
+                <a href="#"><i class="ion-ios-color-filter-outline"></i>Derps</a>
+              </li>
+              <li>
+                <a href="#"><i class="ion-ios-clock-outline"></i>Times</a>
+              </li>
+              <li>
+                <a href="#"><i class="ion-android-star-outline"></i>Hates</a>
+              </li>
+              <li>
+                <a href="#"><i class="ion-heart-broken"></i>Beat</a>
+              </li>
+            </ul>
+          </li> -->

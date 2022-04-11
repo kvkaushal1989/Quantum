@@ -1,0 +1,22 @@
+<p>
+    ===========================Select=================================</p>
+<!-- <rnd-test></rnd-test> -->
+<basic-select tabindex="1" [(ngModel)]="selectedItems" [dropDownIconDown]="'map-image'" [settings]="dropdownSettings" [disabled]="!edit" [data]="dropdownList" appDivFocus></basic-select>
+
+<pre>{{selectedItems | json}}</pre>
+
+<br/>
+<br/>
+
+<basic-select tabindex="2" [(ngModel)]="selectedItems1" [placeholder]="'test5'" [disabled]="!edit" [required]="true" [data]="dropdownList" [settings]="dropdownSettings1" (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)"
+    (onDeSelectAll)="onDeSelectAll($event)" (focus)="onDeSelectAll($event)"></basic-select>
+
+
+<pre>{{selectedItems1 | json}}</pre>
+<p>
+    =============================End Select======================================
+</p>
+
+<label for="switch-1">NgModel</label>
+<app-switch id="switch-1" [(ngModel)]="checkSwitch" (change)="switchChange()"></app-switch><br />
+<strong>Value:</strong> {{checkSwitch}}

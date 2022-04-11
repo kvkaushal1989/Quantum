@@ -1,0 +1,9 @@
+<mat-form-field  [floatLabel]="isFloatLabel">
+    <span *ngIf="isPrefix && prefixType === 'text'" matPrefix>{{prefixContent}} &nbsp;</span>
+    <mat-icon *ngIf="isPrefix && prefixType !== 'text'" matPrefix>{{prefixContent}}</mat-icon>
+    <textarea matInput [placeholder]="placeholder" [disabled]="isDisabled"
+        [required]="isRequired" [(ngModel)]="defaultValue" [maxlength]="maxLength"></textarea>
+    <span *ngIf="isSuffix && suffixType === 'text'" matSuffix>{{suffixContent}} &nbsp;</span>
+    <mat-icon *ngIf="isSuffix && suffixType !== 'text'" matSuffix>{{suffixContent}}</mat-icon>
+    <mat-hint *ngIf="isHint">{{hintText}}</mat-hint>
+</mat-form-field>

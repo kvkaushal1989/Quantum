@@ -1,0 +1,19 @@
+<div class="image-upload">
+
+  <label *ngIf = "imageSrc == ''" class="circle"><span  >{{  placeholder }}</span></label>
+  <img *ngIf = "imageSrc != ''" [src]="imageSrc" class="circle" />
+
+<label for="file-input">
+  <span *ngIf="isEdit">
+    <img src="../assets/images/Camera.png" class="button-circle" />
+  </span>
+
+  <span *ngIf="isDelete">
+    <img src="../assets/images/Delete.png" class="button-circle" />
+  </span>
+</label>
+<input *ngIf="isEdit" id="file-input" type="file" (change)="handleInputChange($event)"/>
+<button *ngIf="isDelete" style="visibility: hidden;" id="file-input" type="button" (click)="removeImage()"></button>
+</div>
+
+

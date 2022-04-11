@@ -1,0 +1,91 @@
+<div class="notification_modal animated fadeInUp" *ngIf="message">
+  <!-- {{message|json}} -->
+  <div class="notification_modal_content {{message.type}}">
+    <h3 *ngIf="message?.type !== 'webcall'">{{message.text.title}}</h3>
+    <div class="inner_content {{message.type}}" *ngIf="message?.type == 'alert'">
+      <div *ngIf="message?.type == 'alert'">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="confirm-message" [innerHtml]="message.text.body"></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12" style="margin-top: 15px;margin-bottom: 15px;text-align: right;">
+            <button class="btn btn-yes" (click)="message.siFn()">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="inner_content {{message.type}}" *ngIf="message?.type == 'information'">
+      <div *ngIf="message?.type == 'information'">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="confirm-message" [innerHtml]="message.text.body"></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12" style="margin-top: 15px;margin-bottom: 15px;text-align: right;">
+            <button class="btn btn-yes" (click)="message.siFn()">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="inner_content {{message.type}}" *ngIf="message?.type == 'action'">
+      <div *ngIf="message?.type == 'action'">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="confirm-message" [innerHtml]="message.text.body"></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12" style="margin-top: 15px;margin-bottom: 15px;">
+            <button class="btn btn-yes"
+              (click)="redirectToPage(message.text.formUrl);message.siFn();">{{message.text.buttonText ?
+              message.text.buttonText : message.text.title}}</button>
+            <button class="btn btn-no" (click)="message.noFn()">Ignore</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="inner_content {{message.type}}" *ngIf="message?.type == 'webcallold'">
+      <div class="calling_div" *ngIf="message?.type == 'webcall'">
+        <div class="row">
+          <div class="col-md-12">
+            <!-- <p class="confirm-message" [innerHtml]="message.text.body"></p> -->
+            <img src="assets/images/default-user-image.png">
+            <p class="user_p"><b>{{message.text.userName}}</b></p>
+            <p style="color: #eadcdc;">is calling you</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12" style="margin-top: 15px;margin-bottom: 15px;">
+            <button class="btn btn-yes green_rounded" (click)="message.siFn()">Accept</button>
+            <button class="btn btn-no red_rounded" (click)="message.noFn()">Decline</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="inner_content {{message.type}}" *ngIf="message?.type == 'webcall'">
+      <div class="calling_div chat_div" *ngIf="message?.type == 'webcall'">
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="confirm-message" style="font-size: 16px;">New Message</h4>
+            <p class="confirm-message">{{message.text.userName}} wants to chat with you</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12" style="margin-top: 15px;margin-bottom: 15px;">
+            <button class="btn btn-yes" (click)="message.siFn()">Join Chat</button>
+            <button class="btn btn-no" (click)="message.noFn()">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

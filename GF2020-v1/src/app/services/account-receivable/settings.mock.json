@@ -1,0 +1,22 @@
+
+{
+  "Data": [{
+    "vatcountrysettingpk": 0,
+    "countryfk": 11,
+    "country_name": "Argentina",
+    "VATList": [{
+      "vatpercentagesettingpk": 0,
+      "vatcountrysettingfk": 0,
+      "vat_id": "VAT1",
+      "vat_Name": "VAT1",
+      "vat_percentage": 10.5
+    },
+	{
+      "vatpercentagesettingpk": 0,
+      "vatcountrysettingfk": 0,
+      "vat_id": "VAT2",
+      "vat_Name": "VAT2",
+      "vat_percentage": 10.5
+    }]
+  }]
+}

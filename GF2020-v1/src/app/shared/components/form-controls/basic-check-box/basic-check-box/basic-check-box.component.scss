@@ -1,0 +1,88 @@
+.basic-checkbox {
+    // align-items: center;
+    display: flex;
+    outline:none;
+}
+
+::ng-deep .basic-checkbox:focus {
+  // align-items: center;
+  outline:none !important;
+}
+
+::ng-deep .basic-checkbox:active {
+  // align-items: center;
+  outline:none !important;
+}
+
+.customCheckbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    display: block;
+    height: 18px;
+    width: 18px;
+    border: 2px solid #A6B8BD;
+    border-radius: 2px;
+    position:relative; 
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .customCheckbox:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .customCheckbox input:checked ~ .checkmark {
+    background-color: #00B8F1;
+    border-color: #00B8F1;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .customCheckbox input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .customCheckbox .checkmark:after {
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .radio-custom-label {
+    text-align: left;
+    font-weight: 500;
+    font-size: 0.9vw;
+    line-height:17px;
+    letter-spacing: 0px;
+    color: #567C87 !important;
+    text-transform: capitalize !important;
+    opacity: 1;
+    font-family: "Exo 2", sans-serif !important;
+
+    margin-left:10px;
+}
+
+
+span[class*="checkmark focus"] {
+    border: 2px solid #5e818c !important; 
+}

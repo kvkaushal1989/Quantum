@@ -1,0 +1,39 @@
+<!-- <ng-container *ngIf="radioItems.length > 0">
+    <div class="row">
+        <div class="col" *ngFor='let v of radioItems; let i = index;'>
+        
+            <input id='{{identifier}}-{{v.replace(" ", "-")}}-{{ i }}' class='radio-custom' type='radio' value='{{v}}' [(ngModel)]='inputValue' (ngModelChange)='inputValueChange.emit(inputValue)' name='{{v}}' [disabled]='disabled' (change)='_onChangeHandler()'>
+            <label class='radio-custom-label' for='{{identifier}}-{{ v }}-{{ i }}'>{{v}}</label>
+        </div>
+    </div>
+</ng-container>
+ -->
+
+<!-- 
+<ng-container *ngIf="radioItems.length > 0">
+    <div class="row">
+        <div class="col" *ngFor='let v of radioItems; let i = index;'>
+            <label class="customRadio">
+                <input id='{{identifier}}-{{v.replace(" ", "-")}}-{{ i }}' class='radio-custom' type='radio' value='{{v}}' [(ngModel)]='inputValue' (ngModelChange)='inputValueChange.emit(inputValue)' name='{{v}}' [disabled]='disabled' (change)='_onChangeHandler()'>
+                <i></i>
+            </label>
+           
+            <label class='radio-custom-label' for='{{identifier}}-{{ v }}-{{ i }}'>{{v}}</label>
+        </div>
+    </div>
+</ng-container>  -->
+
+
+<ng-container *ngIf="radioItems.length > 0">
+    <div class="row">
+        <div class="col-md-auto" *ngFor='let v of radioItems; let i = index;'>
+            <label class="customRadio">
+                <input id='{{identifier}}-{{v.replace(" ", "-")}}-{{ i }}' class='radio-custom' type='radio' [value]='v' [(ngModel)]='value'  [name]='v' [disabled]='disabled'>
+                <i></i>
+            </label>
+           
+            <label class='radio-custom-label' for='{{identifier}}-{{ v }}-{{ i }}'>{{v}}</label>
+        </div>
+    </div>
+</ng-container> 
+

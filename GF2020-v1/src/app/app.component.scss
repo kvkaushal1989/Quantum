@@ -1,0 +1,72 @@
+.float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #3ab9f1;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+    cursor: pointer;
+}
+
+.my-float {
+    margin-top: 18px;
+    font-size: 25px;
+}
+
+.user_img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.action_div {
+    text-align: center;
+    button {
+        border: none;
+        border-radius: 4px;
+        margin: 10px;
+        background: #3ab9f1;
+        padding: 5px 10px;
+        cursor: pointer;
+        p {
+            color: #ffffff;
+        }
+    }
+    button:disabled {
+        background: #d0d4d6 !important;
+    }
+    mat-icon {
+        margin: 5px;
+        color: #ffffff;
+    }
+}
+
+.active_status {
+    font-size: 12px;
+    vertical-align: baseline;
+    color: #8dd28d;
+    position: absolute;
+    left: 65px;
+    top: 27px;
+}
+
+.btn_text_btn {
+    color: #ffffff;
+    border-bottom: 1px solid #443e3e;
+}
+
+.white_spin {
+    color: #ffffff;
+    width: 15px;
+    height: 15px;
+    padding: 13px;
+}
+
+.active_userp {
+    padding: 15px;
+    color: #ffffff;
+}

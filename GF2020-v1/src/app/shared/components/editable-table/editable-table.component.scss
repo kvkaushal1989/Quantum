@@ -1,0 +1,109 @@
+::ng-deep{
+    
+    .mat-tab-header {
+        border-bottom: unset !important;
+    }
+    .mat-tab-label{
+        padding: 0px !important;
+        height: auto !important;
+        opacity: 1 !important;
+        min-width: auto !important;
+        margin-bottom: 11.5px;
+    }
+    .mat-tab-label-content {
+        color: #567C87;
+        letter-spacing: 0.32px;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: "Exo 2", sans-serif !important;
+        padding-bottom: 4.5px;
+        margin-right: 16px;
+    }
+    .mat-tab-label-active .mat-tab-label-content {
+        color: #0C323D;
+        border-bottom: 2px solid #0C323D;
+    }
+    .mat-ink-bar{
+        display: none;
+    }
+    .mat-tab-body-wrapper{
+        padding: 0px !important;
+        min-height: 50vh;
+        .card{
+            box-shadow: 0px 1px 2px #00000029;
+            border-radius: 6px !important;
+        }
+        // .card-body{
+        //     padding: 1rem !important;
+        // }
+        .text-box-col{
+            margin-bottom: 0px !important;
+            margin-right: 8px;  
+            &:last-child{
+                margin-right: 0px !important;
+            }
+            p.heading {
+                margin: 0px;
+                font-size: 12px;
+                font-weight: 500;
+                letter-spacing: 0.36px;
+                color: #0C323D;
+                font-family: "Exo 2", sans-serif !important;
+            }
+            p.portName {
+                margin: 0px;
+                font-size: 16px;
+                font-weight: 500;
+                letter-spacing: 0px;
+                color: #0C323D;
+                padding-bottom: 8px; 
+                font-family: "Exo 2", sans-serif !important;
+            }
+            p.PortCode {
+                margin: 0px;
+                font-size: 12px;
+                color: #567C87;
+                font-family: "Exo 2", sans-serif !important;
+            }
+            
+            
+        }
+        .mat-select-arrow::before {
+            padding-right: 0px !important; 
+        }
+        .terminalCircle {
+            background-color: transparent;
+            position: absolute;
+            margin-top: 15px;
+            left: 37%;
+            width: 24px;
+            height: 24px;
+            &:before {
+                border-top: 2px solid #D7DEE0;
+                content: "";
+                margin: 0 auto;
+                position: absolute;
+                top: 50%;
+                right: 24px;
+                width: 48px;
+                z-index: 1;
+            }
+            &::after {
+                border-top: 2px solid #D7DEE0;
+                content: "";
+                margin: 0 auto;
+                position: absolute;
+                top: 50%;
+                right: 24px;
+                width: 48px;
+                z-index: 1;
+            }
+        }
+        .btn3{
+            height: 56px;
+            min-width: 158px;
+        }
+    }
+}
+

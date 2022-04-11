@@ -1,0 +1,191 @@
+<div class="container-fluid header-contain" id="header_nav">
+  <div class="row align-items-center">
+    <div class="col-md-7 main-container-padding-left">
+      <nav class="breadcrumb">
+        <a *ngFor="let itemVal of navItems; let i = index; let isLast=last;" class="breadcrumb-item"
+          (click)="routeTo(itemVal,i, isLast)">
+          <span [ngClass]="{'disable-navItem': i == navItems.length - 1}"> {{itemVal.item}}</span></a>
+      </nav>
+      <div class="display-inline-block m-0 {{navsubItem.isHeader ? 'title-header' :'title-sub-header'}}"
+        *ngFor="let navsubItem of navSubItems">{{navsubItem.item}}</div>
+    </div>
+
+    <div class="col-md-2" style="margin-top: -8px;">
+      <!-- <img src="assets/images/Search-top.png" class="search_nav" *ngIf="!searchFilter">
+      <img src="assets/images/close-button.JPG" class="search_nav close_nav" *ngIf="searchFilter" (click)="clearFilter()">
+      <p-autoComplete [suggestions]="filteredMenuItems" (completeMethod)="filterMenuNames($event)" [(ngModel)]="searchFilter" field="name"
+        [forceSelection]="true" placeholder="What you are looking for?" (onSelect)="navigateUrl($event)" class="header_nav_autocomplete">
+        <ng-template let-menuList pTemplate="item">
+          <div class="country-item">
+            <div>{{menuList.name}}</div>
+          </div>
+        </ng-template>
+      </p-autoComplete> -->
+    </div>
+
+    <div class="col-md-3">
+      <div class="custom_nav">
+        <ul>
+          <li>
+            <a [href]="glossaryUrl" target="_blank"> <img src="assets/images/glossary-icon.png"></a>
+          </li>
+          <!-- <li>
+            <a> <img src="assets/images/Search-top.png"></a>
+          </li> -->
+          <li>
+            <a>
+              <img src="assets/images/mail.png" [matMenuTriggerFor]="mailBox" style="width: 22px;height: 22px;">
+              <!-- <span class="count_span">2</span> -->
+            </a>
+            <mat-menu #mailBox="matMenu" xPosition="before" backdropClass="custom_mat_mail">
+              <h4>Messages</h4>
+              <button mat-menu-item class="manage_btn" (click)="navigateToMail(0)">Inbox</button>
+              <button mat-menu-item class="manage_btn" (click)="navigateToMail(1)">Sent</button>
+              <button mat-menu-item class="manage_btn" (click)="navigateToMail(2)">Draft</button>
+              <button mat-menu-item class="manage_btn" (click)="navigateToMail(3)">Trash</button>
+            </mat-menu>
+          </li>
+          <!-- <div class="custom_mat_menu">
+            <mat-menu #menu="matMenu" xPosition="after" yPosition="above" [overlapTrigger]="true" backdropClass="custom_mat">
+              <button mat-menu-item *ngFor="let e of c.childData1;"
+                (click)="navigateUrl(i, e.menuform_url)">{{e.menuform_name}}</button>
+            </mat-menu>
+          </div> -->
+          <li>
+            <a>
+              <img src="assets/images/notify.png" (click)="getNotifications('Un Read')">
+              <span class="count_span" *ngIf='sideMenuService.unreadCount > 0 && sideMenuService.unreadCount < 99'>{{sideMenuService.unreadCount}}</span>
+              <span class="count_span" *ngIf='sideMenuService.unreadCount > 0 && sideMenuService.unreadCount > 99'>99+</span>
+            </a>
+          </li>
+          <li (click)="showHelpFile()">
+            <a>
+              <mat-icon class="help_icon">help</mat-icon>
+            </a>
+          </li>
+          <li>
+            <a> <img src="assets/images/power-button.png" [matMenuTriggerFor]="menu"></a>
+          </li>
+          <li>
+            <a *ngIf="sideMenuService.userDetails">
+              <!-- <img src="assets/images/profile-pic.png"> -->
+              <img *ngIf="sideMenuService.userDetails.user_image;else noUserImg"
+                [src]="sideMenuService.userDetails.user_image" class="user_img" [matTooltip]="sideMenuService.userDetails.username">
+              <ng-template #noUserImg>
+                <span class="user_span" *ngIf="sideMenuService.userDetails.username" [matTooltip]="sideMenuService.userDetails.username">
+                  {{ sideMenuService.userDetails.alias.substring(0,2) | uppercase }}</span>
+                <!-- <img src="assets/images/profile-pic.png" class="user_img"> -->
+              </ng-template>
+            </a>
+          </li>
+        </ul>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)='logout()'>Logout</button>
+        </mat-menu>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div id="sidenavModal" class="sidenav_modal" (click)="closeNav()"></div>
+<div id="mySidenav" class="sidenav">
+
+  <ul class="alert_ul" *ngIf="notificationList.length && !isNotificationLoading">
+    <div class="header_div">
+      <h3 class="heading_h3" *ngIf="sideMenuService.unreadCount > 0 && notificationList">
+        {{sideMenuService.unreadCount}} New Notification(s)
+        <img class="close_img" src="assets/images/Close.svg" (click)="closeNav()">
+        <!-- <span class="clear_all" (click)="showClearAllPopup()">Clear All</span> -->
+        <span class="clear_all" (click)="showClearAllPopup()" *ngIf="selctedArray.length > 0">Clear Selected</span>
+      </h3>
+      <h3 class="heading_h3" *ngIf="sideMenuService.unreadCount == 0 && notificationList">Notification(s)
+        <img class="close_img" src="assets/images/Close.svg" (click)="closeNav()">
+        <span class="clear_all" (click)="showClearAllPopup()" *ngIf="selctedArray.length">Clear Selected</span>
+      </h3>
+    </div>
+
+    <div style="overflow: auto;flex-grow: 1;">
+      <div class="row mt-2 selectall">
+        <div class="col-md-10">
+          <span class="font-weight-semibold">Select All</span>
+        </div>
+        <!-- {{notificationList.selected | json}} -->
+        <div class="col-md-2">
+          <basic-check-box type="checkbox" (change)="selectallcheck($event)" >
+          </basic-check-box>
+        </div>
+      </div>
+      <li *ngFor="let x of notificationList;let i = index" [ngClass]="{'bglist': selectallflag === true,'normal':selectallflag === false}" [style.background-color]="x.selected  ? '#88a3ab38' : ''">
+      
+        <h3 [style.font-weight]="x.read_status == 'Un Read' ? 'bold' : 'normal'" (click)="selectMessages(i)">
+          {{x.message_header}} </h3>
+        <i class="fa fa-ellipsis-v ellipsis_v" mat-button [matMenuTriggerFor]="childNotification"></i>
+        <mat-menu #childNotification="matMenu" xPosition="before">
+          <!-- <button mat-menu-item class="manage_btn">Manage</button> -->
+          <button mat-menu-item class="manage_btn" (click)="showNotificationDetail(x)">View</button>
+          <button mat-menu-item class="manage_btn" (click)="showClearPopup(x)">Clear</button>
+        </mat-menu>
+        <p [style.color]="x.read_status == 'Un Read' ? '#212529' : '#b5b2b2'" (click)="selectMessages(i)"
+          [innerHtml]="x.message_body"></p>
+      </li>
+      <div>
+        <p class="footer_p" (click)="getNotifications()" *ngIf="hideShowAll && notificationList">See All</p>
+        <!-- <p class="footer_p" (click)="getNotifications('Un Read')"
+          *ngIf="!hideShowAll && sideMenuService.unreadCount != 0">Hide Read
+        </p> -->
+      </div>
+    </div>
+
+  </ul>
+  <div class="alert_ul" *ngIf="!notificationList.length && !isNotificationLoading">
+    <div class="header_div">
+      <h3 class="heading_h3">No Notifications
+        <img class="close_img" src="assets/images/Close.svg" (click)="closeNav()">
+      </h3>
+    </div>
+    <p style="padding: 20px;padding-top: 20px;font-size: 15px;">You don't have any Notifications </p>
+  </div>
+  <div class="loading_p" *ngIf="isNotificationLoading">
+    <p>Loading Notifications..</p>
+    <span class="spinner-border spinner-border-sm spinner-style"></span>
+  </div>
+</div>
+
+<div id="notificationModal" class="notification_modal">
+  <div class="notification_modal_content">
+    <h3 class="content_heading">{{notificationDetail.message_type}} <i class="fa fa-times close_times"
+        (click)="hideNotificationDetail()"></i></h3>
+    <div class="inner_content">
+      <h3 class="sub_heading">{{notificationDetail.message_header}}</h3>
+      <p [innerHtml]="notificationDetail.message_body"></p>
+    </div>
+  </div>
+</div>
+
+<div id="confirmCancelModal" class="notification_modal">
+  <div class="notification_modal_content">
+    <h3 class="content_heading">Are you Sure? <i class="fa fa-times close_times" (click)="hideClearPopup()"></i></h3>
+    <div class="inner_content">
+      <p>You want to clear the Notification</p>
+      <div class="button_div">
+        <button class="btn btn-yes" (click)="clearNotification()">Yes</button>
+        <button class="btn btn-no" (click)="hideClearPopup()">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="clearAllModal" class="notification_modal">
+  <div class="notification_modal_content">
+    <h3 class="content_heading">Are you Sure? <i class="fa fa-times close_times" (click)="hideClearAllPopup()"></i></h3>
+    <div class="inner_content">
+      <p>You want to clear selected notifications</p>
+      <div class="button_div">
+        <button class="btn btn-yes" (click)="clearAllNotification()">Yes</button>
+        <button class="btn btn-no" (click)="hideClearAllPopup()">No</button>
+      </div>
+    </div>
+  </div>
+</div>

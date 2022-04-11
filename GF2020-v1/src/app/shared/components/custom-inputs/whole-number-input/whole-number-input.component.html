@@ -1,0 +1,14 @@
+<mat-form-field class="input-right-align" [floatLabel]="'always'">
+    <mat-label>{{label}}</mat-label>
+    <span *ngIf="isPrefix && prefixType === 'text'" matPrefix>{{prefixContent}} &nbsp;</span>
+    <mat-icon *ngIf="isPrefix && prefixType !== 'text'" matPrefix>{{prefixContent}}</mat-icon>
+    <input  [name]="name" matInput [placeholder]="placeholder" type="number" min="0"
+        (keypress)="checkValidation($event, defaultValue)" [required]="isRequired"
+        (input)="onUserInput(name,defaultValue)" [(ngModel)]="defaultValue"  (blur)="postInputData(name,defaultValue)"  #textInput="ngModel"
+        [maxlength]="maxLength" [minlength]="minLength">
+    <span *ngIf="isSuffix && suffixType === 'text'" matSuffix>{{suffixContent}} &nbsp;</span>
+    <mat-icon *ngIf="isSuffix && suffixType !== 'text'" matSuffix>{{suffixContent}}</mat-icon>
+    <mat-hint *ngIf="isHint">{{hintText}}</mat-hint>
+</mat-form-field>
+
+<!-- in all places need to add the options if we need .....-->

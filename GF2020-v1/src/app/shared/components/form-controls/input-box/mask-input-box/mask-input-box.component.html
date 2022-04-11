@@ -1,0 +1,83 @@
+ 
+    <div class="mask-input-box-wrapper">
+      <div class="mask-input-box-table">
+        <div class="mask-input-box-prefix" *ngIf="isPrefix" [ngClass]="{'label-prefix-visible': isPrefix}">
+          <div  class="prefix-content" select="[mask-input-box-prefix]" [innerHTML]="prefixContent"></div>
+        </div>
+    
+        <div class="mask-input-box-infix">
+          <input #simpleInputText="ngModel"
+              [name]="name"
+              [type]="type"
+              [required]="required"
+              [placeholder]="placeholder" 
+              [tabindex]="taborder" 
+              [value]="value"
+              [readonly]="isReadOnly"
+              [(ngModel)]="value"
+
+              [pattern]="customPattern"
+    
+              [autofocus]="focused"
+              [disabled]="disabled"
+              class="mask-input-box-element"
+              [ngClass]="{'input-prefix-visible': isPrefix}"
+              [id]="identifier"    
+              [max]="maxlength"
+              [maxlength]="maxlength"
+              [min]="minlength"
+              [minlength]="minlength"  
+          /> 
+          <div class="mask-input-box-suffix" *ngIf="isSuffix">
+            <div class="suffix-content" [innerHTML]="suffixContent"></div>
+          </div>
+          <label *ngIf="label" 
+            class="mask-input-box-placeholder"
+            [attr.for]="inputId"
+            [class.required]="required"
+            [class.mask-input-box-empty]="empty"
+            [class.mask-input-box-focused]="focused"
+            [class.mask-input-box-float]="isFloatLabel"
+            [class.mask-input-box-accent]="dividerColor == 'accent'"
+            [class.mask-input-box-warn]="dividerColor == 'warn'" 
+          > {{ label }} </label> 
+        </div>
+    
+     
+      </div>
+        
+        <div class="mask-input-box-underline"
+           [class.mask-input-box-disabled]="disabled">
+          <span class="mask-input-box-ripple"
+                [class.mask-input-box-focused]="focused"
+                [class.mask-input-box-accent]="dividerColor == 'accent'"
+                [class.mask-input-box-warn]="dividerColor == 'warn'"></span>
+        </div>
+    
+        <div *ngIf="isHint==true" class="mask-input-box-hint">{{hintText}}</div>
+        <div select="mask-input-box-hint"></div>
+    </div> 
+    
+    <div class="error" *ngIf="(errorStatus == null && simpleInputText.errors && (simpleInputText.touched || simpleInputText.dirty) && !simpleInputText.valid) || showErrors">
+      <div *ngIf="required && simpleInputText.errors.required" class="alert alert-danger">
+          {{label}} is required.
+      </div>
+      <div *ngIf="simpleInputText.errors.minlength" class="alert alert-danger">
+        Minimum {{minlength}} characters are required.
+      </div>
+      <div *ngIf="simpleInputText.errors.maxlength" class="alert alert-danger">
+        Maximum {{maxlength}} characters are allowed.
+      </div>
+    </div>
+
+    <div class="error form-control-error" *ngIf="errorStatus != null && errorStatus.errors && (errorStatus.touched || errorStatus.dirty)">
+      <div *ngIf="errorStatus.errors && errorStatus.errors['required']" class="alert alert-danger">
+          {{label}} is required.
+      </div>
+      <div *ngIf="errorStatus.errors && errorStatus.errors['minlength']" class="alert alert-danger">
+          Minimum {{minlength}} characters are required.
+      </div>
+      <div *ngIf="errorStatus.errors && errorStatus.errors['maxlength']" class="alert alert-danger">
+          Maximum {{maxlength}} characters are allowed.
+      </div>
+    </div> 

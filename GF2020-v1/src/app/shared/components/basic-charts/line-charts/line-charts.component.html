@@ -1,0 +1,11 @@
+<!-- <p>line-charts works!</p> -->
+<!-- <canvas id="myChart{{id}}" width="300" height="200"></canvas> -->
+
+<!-- <canvas baseChart width="100" height="100" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins"></canvas> -->
+
+<!-- {{ graphData | json }} -->
+
+<!-- build error -->
+<div *ngIf="isChartVisible" style="display: block; width: 230px;">
+    <canvas baseChart width="130" height="60" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" [plugins]="lineChartPlugins"></canvas>
+</div>

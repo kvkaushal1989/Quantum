@@ -1,0 +1,169 @@
+.blue-button{
+    height: 56px;
+    background: #00B9F2 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    opacity: 1;
+    border:none;
+    padding:0px 16px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.16px;
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+// ::ng-deep .mat-tab-label{
+//     height:20px !important;
+// }
+
+.setting-icon {
+    position: absolute;
+    text-align: right;
+    top: 108px;
+    right: 15px;
+    font-size: 24px;
+  }
+
+
+  
+.setting-icon {
+    position: absolute;
+    text-align: right;
+    top: 108px;
+    right: 15px;
+    font-size: 24px;
+  }
+
+  .grey-bg{
+    background: #D7DEE0;
+
+    text-align: left;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.36px;
+    color: #0C323D;
+    text-transform: uppercase;
+    opacity: 1;
+    padding-top:8px;
+  }
+
+  .min-width{
+      min-width:max-content;
+  }
+
+  .white-bg{
+    text-align: left;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0px;
+    color: #0C323D;
+   // padding:0px;
+    opacity: 1;
+  }
+
+  .blue-bg{
+    background: #E7F2F6 0% 0% no-repeat padding-box;
+    padding:8px 0px;
+
+    text-align: left;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0px;
+    color: #0C323D;
+    opacity: 1;
+  }
+
+  .rotate-360 {
+    transform: rotate(180deg);
+  }
+
+  // .min-width{
+  //   min-width:60px;
+  // }
+
+  .width-60{
+    min-width:60px;
+    padding:0px 0px 0px 5px;
+  }
+
+  .width-80{
+    min-width:80px;
+    padding:0px 0px 0px 5px;
+  }
+  .width-120{
+    min-width:120px;
+    padding:0px 0px 0px 5px;
+  }
+
+  ::ng-deep .pure-checkbox input + label{
+    text-align: left;
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    line-height: 19px;
+    letter-spacing: 0px;
+    color: #567C87 !important;
+    opacity: 1;
+  }
+
+
+  
+
+.modal-dialog{
+  margin-top:120px;
+  box-shadow: 0px 3px 16px #A6B8BD;
+  border-radius: 1px !important;
+  width:352px;
+}
+
+.modal {
+  display: block !important;
+ 
+}
+
+.textWrapper{
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.BookingReport .modal-dialog {
+  max-width: 620px;
+  width: 100%;
+}
+.bg-grey{
+  background-color:#F5F6F7 !important;
+}
+.stripDiv div.row:nth-of-type(2n+1) {
+  background: #F5F6F7;
+}
+
+.tableDiv {
+  max-width: 400px;
+  float: right;
+  position: absolute;
+  right: 0px;
+  margin-top: 2px;
+  z-index: 2;
+  margin-right: 16px;
+}
+
+p.portName {
+  &::after {
+      border-top: 2px solid #D7DEE0;
+      content: "";
+      margin: 0 auto;
+      position: absolute;
+      position: absolute;
+      top: 10px;
+      right: -35px;
+      width: 50px;
+      z-index: 1;
+    }
+}

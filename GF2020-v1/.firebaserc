@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "node-ecom": {
+      "hosting": {
+        "mynxt-ui-v2": [
+          "node-ecom"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "node-ecom"
+  }
+}

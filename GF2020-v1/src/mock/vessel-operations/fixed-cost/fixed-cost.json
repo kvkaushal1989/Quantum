@@ -1,0 +1,20 @@
+
+{
+	"Data": {
+		"servicedefition_pk": 35,
+		"servicemaster_pk": 15,
+		"service_id": "MT101",
+		"service_name": "Demo Multi port Service",
+		"voynr": "-",
+		"from_port": "All",
+		"to_port": "All",
+		"from_ata": "-",
+		"to_ata": "-",
+		"charter_hire": 178750,
+		"bunker_charter": 24838.60,
+		"port_charter": 42500,
+		"total_charter": 246088,
+		"HiddenField": ""
+	}
+}
+

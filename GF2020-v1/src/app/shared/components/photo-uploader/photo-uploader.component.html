@@ -1,0 +1,38 @@
+<!-- <div class="container">
+    <div class="row custom-wrapper">
+        <div class="col-md-12">
+            <div class="avatar-upload">
+                <div class="avatar-preview">
+                    <div id="imagePreview" [style.backgroundImage]="'url('+ imageUrl +')'">
+                    </div>
+                </div>
+                <button class="button-circle">
+                    <input class="upload-input" type="file" accept=".png, .jpg, .jpeg" #fileInput
+                        (change)="selectFile($event)" />
+                    <img src="./assets/images/Camera.png">
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button (click)="uploadFile()">Upload</button> -->
+
+<div class="image-upload">
+    <label *ngIf = "imageSrc == ''" class="circle"><span  >{{  placeholder }}</span></label>
+    <img *ngIf = "imageSrc != ''" [src]="imageSrc" class="circle" />
+
+    <label for="file-input">
+      <span *ngIf="isEdit">
+        <img src="../assets/images/Camera.png" class="button-circle" />
+      </span>
+
+      <span *ngIf="isDelete">
+        <img src="../assets/images/Delete.png" class="button-circle" />
+      </span>
+    </label>
+    <input *ngIf="isEdit" id="file-input" type="file" (change)="handleInputChange($event)"/>
+    <button *ngIf="isDelete" style="visibility: hidden;" id="file-input" type="button" (click)="removeImage()"></button>
+</div>
+
+

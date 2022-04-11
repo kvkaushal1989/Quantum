@@ -1,0 +1,48 @@
+<mat-form-field class="mat_form" [floatLabel]="'always'" fxFlex style="width: 130px!important;border: none!important;">
+    <mat-label [ngClass]="{ '11required1212' : required }">{{label}}</mat-label>
+    <input #datePickerInput="ngModel" matInput [name]="name" disabled="{{disabled ? 'true' : 'false'}}"
+      [matDatepicker]="picker" readonly='false' [min]="minDate" [max]="maxDate" [placeholder]="placeholder"
+      [(ngModel)]="value" (dateChange)="addEvent($event)" [required]="required">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker touchUi #picker></mat-datepicker>
+  </mat-form-field>
+
+<!-- <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Choose a date</mat-label>
+    <input #datePickerInput="ngModel" matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker touchUi #picker></mat-datepicker>
+</mat-form-field> -->
+
+<!-- {{value}} -->
+<!-- <mat-form-field>
+      <mat-label>Select Country</mat-label>
+      <mat-select [(ngModel)]="selectedCountry" (selectionChange)="changeLocale(selectedCountry)" name="datePicker" ngDefaultControl>
+          <mat-option *ngFor="let country of countries" [value]="country.value">
+              {{country.viewValue}}
+          </mat-option>
+      </mat-select>
+  </mat-form-field> -->
+
+<!-- <div>
+      <label [ngClass]="{ 'required' : required }">{{label}}</label>
+      <input type="date" matInput [name]="name" disabled="{{disabled ? 'true' : 'false'}}" readonly='false' [min]="minDate" [max]="maxDate" placeholder="dd/mm/yyyy" [(ngModel)]="value" (blur)="_changeHandler($event)" format="dd/mm/yyyy">
+  </div> -->
+<div class="error"
+    *ngIf="(errorStatus == null && datePickerInput.errors && (datePickerInput.touched || datePickerInput.dirty) && !datePickerInput.valid) || showErrors">
+    <div *ngIf="required && datePickerInput.errors.required" class="alert alert-danger">
+        {{label}} is required.
+    </div>
+</div>
+
+<div class="error" *ngIf="errorStatus != null && errorStatus.errors && (errorStatus.touched || errorStatus.dirty)">
+    <div *ngIf="errorStatus.errors && errorStatus.errors['required']" class="alert alert-danger">
+        {{label}} is required.
+    </div>
+    <!-- <div *ngIf="errorStatus.errors && errorStatus.errors['minlength']" class="alert alert-danger">
+          Minimum {{minlength}} characters are required.
+      </div>
+      <div *ngIf="errorStatus.errors && errorStatus.errors['maxlength']" class="alert alert-danger">
+          Maximum {{maxlength}} characters are allowed.
+      </div> -->
+</div>

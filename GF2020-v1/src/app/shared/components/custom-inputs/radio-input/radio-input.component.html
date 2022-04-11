@@ -1,0 +1,17 @@
+<mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="radio-group" [name]='name'
+  [(ngModel)]="selectedItem" [disabled]="isDisabled"  ngDefaultControl >
+  <mat-radio-button class="radio-button" *ngFor="let item of radioItems"
+   [value]="item==''?default : item"  (change)="onRadioChange(selectedItem,'')" [labelPosition]="labelPosition" >
+    {{item}}
+  </mat-radio-button>
+</mat-radio-group>
+
+
+<!-- <input type="radio" class="one"
+       id="{{ i }}_{{ candidate.user._id }}_{{post.id}}_{{ candidate.date}}"
+       name="{{post.id}}"
+       [value]='candidate.user._id'
+       [(ngModel)]="radioButtonValues[i]"
+       (ngModelChange)='changeEventInRadioButton($event)'> -->

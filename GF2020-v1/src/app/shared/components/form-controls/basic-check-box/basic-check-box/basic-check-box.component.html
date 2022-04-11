@@ -1,0 +1,35 @@
+<div class="basic-checkbox">
+    <label class="customCheckbox">
+        <input
+            #BasicCheckBox='ngModel'
+            id="{{ identifier }}-{{id}}"
+            class="radio-custom"
+            type="checkbox"
+            [value]="value"
+            [(ngModel)]="value" 
+            name="{{ placeholder }}"
+            [disabled]="disabled"
+            (focus)="_handleFocus($event)"
+            (blur)="_handleBlur($event)"      
+            [autofocus]="focused"
+        />
+        <!-- (change)="_handleChange($event)"
+            (focus)="_handleFocus($event)"
+            (blur)="_handleBlur($event)" -->
+        <span class="checkmark" [ngClass]="{'focus' : focused}"></span>
+    </label>
+        <!-- [required]="required" -->
+    <label class="radio-custom-label" for="{{ identifier }}">{{ placeholder }}</label>
+</div>
+
+<div class="error" *ngIf="BasicCheckBox.errors && (BasicCheckBox.touched || BasicCheckBox.dirty) && !BasicCheckBox.valid">
+    <div *ngIf="required && BasicCheckBox.errors.required" class="alert alert-danger">
+        This field is required.
+    </div>
+    <!-- <div *ngIf="BasicCheckBox.errors.minlength" class="alert alert-danger">
+      Minimum {{minLength}} characters are required.
+    </div>
+    <div *ngIf="BasicCheckBox.errors.maxlength" class="alert alert-danger">
+      Maximum {{maxLength}} characters are allowed.
+    </div> -->
+</div>

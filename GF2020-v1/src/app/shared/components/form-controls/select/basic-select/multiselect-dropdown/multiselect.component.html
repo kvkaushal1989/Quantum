@@ -1,0 +1,126 @@
+<div #basicSelectInput class="gf2020-dropdown" (clickOutside)="closeDropdown()" (focus)="_handlerFocus($event);">
+  <input class="gf2020-dropdown-input" type="text" [(ngModel)]="selectedItemsInput" [required]="required">
+  <div class="gf2020-selected-list">
+    <div class="c-btn" (click)="toggleDropdown($event)" [ngClass]="{'required': required,'disabled': disabled}">
+      <!-- <div *ngIf="selectedItems.length == 0">{{settings.text}}</div> -->
+      <div class="gf2020-select-placeholder" [ngClass]="{'has-value':selectedItems.length > 0}">{{placeholder}}</div>
+
+      <div *ngIf="settings.singleSelection" class="single-selection-value">
+        <div *ngIf="selectedItems.length > 0; then valueContent else placeholderContent"></div>
+        <ng-template #valueContent>
+          <ng-container *ngFor="let item of selectedItems;trackBy: trackByFn;">
+            <span class="text_nowrap">
+              {{item.text}}
+            </span>
+            <span class="selected-tagged-btn" *ngIf="settings.taggedButtonDisplay && item.taggedButton">
+              {{ item.taggedButton }} </span>
+          </ng-container>
+        </ng-template>
+
+        <ng-template #placeholderContent>
+          <span>{{settings.placeholder}}</span>
+        </ng-template>
+      </div>
+
+      <div class="c-list" *ngIf="!settings.singleSelection">
+        <div *ngIf="selectedItems.length > 0; then valueContent else placeholderContent"></div>
+        <ng-template #valueContent>
+          <div class="c-token"
+            *ngFor="let item of selectedItems;trackBy: trackByFn; let k = index; let first = first; let last = last"
+            [hidden]="k > settings.badgeShowLimit-1" [ngClass]="{'disabled-item': isSelectedDisabled(item)}">
+            <span class="c-label textWrapper text_nowrap" *ngIf="!settings.singleName">{{item.text}}</span>
+            <span class="c-label textWrapper text_nowrap" *ngIf="settings.singleName">{{item.name}}</span>
+            <span class="selected-tagged-btn" *ngIf="settings.taggedButtonDisplay && item.taggedButton">
+              {{ item.taggedButton }}</span>
+
+            <ng-container *ngIf="isChips">
+              <span class="fa fa-remove item-remove" *ngIf="!isSelectedDisabled(item);"
+                (click)="onItemClick(item,k,$event)"></span>
+            </ng-container>
+
+            <span *ngIf="!isChips && selectedItems.length > 1">,</span>
+          </div>
+        </ng-template>
+
+        <ng-template #placeholderContent>
+          <span>{{settings.placeholder}}</span>
+        </ng-template>
+      </div>
+
+      <span class="check-for"
+        *ngIf="selectedItems.length > settings.badgeShowLimit">+{{selectedItems.length - settings.badgeShowLimit }}</span>
+      <span class="fa" [ngClass]="dropDownIconDown"></span>
+    </div>
+  </div>
+  <div class="dropdown-list" [hidden]="!isActive">
+    <div class="arrow-up"></div>
+    <div class="list-area">
+      <div class="pure-checkbox select-all"
+        *ngIf="settings.enableCheckAll && !settings.singleSelection && !settings.limitSelection"
+        (click)="toggleSelectAll()">
+        <input type="checkbox" [checked]="isSelectAll" [disabled]="settings.limitSelection == selectedItems.length" />
+        <label>
+          <span [hidden]="isSelectAll">{{settings.selectAllText}}</span>
+          <span [hidden]="!isSelectAll">{{settings.unSelectAllText}}</span>
+        </label>
+      </div>
+
+      <div class="list-filter" *ngIf="settings.enableSearchFilter">
+        <span class="fa fa-search"></span>
+        <input type="text" [placeholder]="settings.searchPlaceholderText" (keyup)="filterItems();"
+          [(ngModel)]="filter.text">
+      </div>
+
+      <ul *ngIf="!settings.groupBy" [style.maxHeight]="settings.maxHeight+'px'">
+        <li *ngFor="let item of data | listFilter:filter; trackBy: trackByFn; let i = index;"
+          (click)="onItemClick(item,i,$event)" class="pure-checkbox">
+          <div class="row">
+            <div class="col-md-9">
+              <div class="selection-row">
+                <input type="checkbox" [checked]="isSelected(item)" *ngIf="settings.isCheckBoxVisible"
+                  [disabled]="(settings.limitSelection == selectedItems.length && !isSelected(item)) || isSelectedDisabled(item)" />
+                <label [basicOptionHighlight]="filter.text">{{item.text}}</label>
+              </div>
+
+
+              <div class="selection-row" *ngIf="settings.isTagDisplay || settings.taggedButtonDisplay">
+                <span class="selection-col pull-left" *ngIf="settings.isTagDisplay">
+                  <small class="tagged-text">{{ item.taggedLabel }}</small>
+                </span>
+              </div>
+            </div>
+
+            <div class="col-md-3 selection-col pull-right" *ngIf="settings.taggedButtonDisplay && item.taggedButton">
+              <span class="tagged-btn"> {{ item.taggedButton }} </span>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <div *ngIf="settings.groupBy" [style.maxHeight]="settings.maxHeight+'px'" style="overflow: auto;">
+        <ul *ngFor="let obj of groupedData ; let i = index;" class="list-grp">
+          <h4>{{obj['key']}}</h4>
+          <li *ngFor="let item of obj['value'] | listFilter:filter; let i = index;" (click)="onItemClick(item,i,$event)"
+            class="pure-checkbox">
+            <input type="checkbox" [checked]="isSelected(item)" *ngIf="settings.isCheckBoxVisible"
+              [disabled]="(settings.limitSelection == selectedItems.length && !isSelected(item)) || isSelectedDisabled(item)" />
+            <label>{{item.text}}</label>
+          </li>
+        </ul>
+      </div>
+
+      <h6 class="list-message" *ngIf="data?.length == 0">No Data Available</h6>
+    </div>
+  </div>
+
+  <!-- <div *ngIf="required" class="error">
+
+    </div> -->
+</div>
+
+<!-- && basicSelectInput.errors && (basicSelectInput.touched || basicSelectInput.dirty) && !basicSelectInput.valid -->
+<div class="error" *ngIf="required && isTouched">
+  <div *ngIf="required && selectedItems.length <= 0" class="alert alert-danger">
+    {{placeholder}} is required.
+  </div>
+</div>

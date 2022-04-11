@@ -1,0 +1,41 @@
+
+<div *ngIf="data" class="modal " tabindex="-1" role="dialog">
+  <div class="modal-dialog custom-share" role="document" *ngIf="data.type === 'AccessRestricted'"> 
+      <div class="modal-content">
+          <div class="modal-header">
+              <strong class="modal-title">Restricted Access</strong>
+          </div>
+
+          <div class="modal-body">
+              <form class="" [formGroup]="loginForm" novalidate autocomplete="off">
+                   <div class="col-md-12 p-0">
+                       <p>Income and finance details are restricted and subject to authorised personnel only.</p>
+
+                       <p class="mt-4">If you have security credentials to access this information please enter details below.</p>
+                   </div>
+
+                   <div class="col-md-12 mt-4 text-box-col">
+                      <simple-text-box type="text" required="true" label="User ID" formControlName="userName"  autocomplete="off"></simple-text-box>
+                   </div>
+
+                   <div class="col-md-12 mt-4 text-box-col">
+                      <simple-text-box formControlName="password" required="true" label="Password" type="password" autocomplete="off"></simple-text-box> 
+                   </div>  
+
+                  <div class="custom-last-field"></div>
+              </form>                
+          </div>
+
+          <div class="model-footer p-3">
+              <div class="row">
+                  <div class="col-md-12">
+                      <span class="float-right">
+                          <button type="button" class="btn" (click)="data.noFn()">Cancel </button> 
+                          <button class="btn btn3 ml-3" (click)="unlockAccess()" [disabled]="!loginForm.valid">Unlock</button>
+                      </span>
+                  </div>
+              </div>
+          </div>   
+      </div>     
+  </div>
+</div> 

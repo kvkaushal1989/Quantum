@@ -1,0 +1,118 @@
+.notification_modal {
+  display: block;
+  position: fixed;
+  z-index: 8;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.notification_modal_content.webcall {
+  width: 335px !important;
+}
+
+.notification_modal_content {
+  background-color: #fefefe;
+  margin: auto;
+  width: 450px;
+  position: absolute;
+  bottom: 40px;
+  right: 60px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+
+  h3 {
+    background: #005972;
+    // background: #35b9f1;
+    padding: 10px;
+    font-size: 18px;
+    color: #ffff;
+    margin-bottom: 0px;
+  }
+
+  .inner_content {
+    padding: 20px;
+  }
+
+  .btn-yes {
+    background: #eee;
+  }
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+.inner_content.webcall {
+  background: #0e0e0e;
+}
+
+.calling_div {
+  text-align: center;
+
+  .user_p {
+    font-size: 22px;
+    margin-bottom: 8px;
+    margin-top: 18px;
+    color: #ffffff;
+  }
+  .green_rounded {
+    background: #1aa21a;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .red_rounded {
+    background: #c34242;
+    color: #ffffff;
+    margin-left: 25px;
+    cursor: pointer;
+  }
+}
+
+.chat_div {
+  text-align: left;
+  .confirm-message {
+    color: #ffffff;
+  }
+}

@@ -1,0 +1,36 @@
+<!-- <div class="custom-alert">
+  <div *ngFor="let message of messages;let i = index" [hidden]="isNotification" class="alert {{type === 'success'? 'alert-success' : 'alert-danger'}} alert-dismissible" >
+      <a  class="close" data-dismiss="alert" aria-label="close" (click)="closeNotification(i)">&times;</a>
+      <strong>{{message?.title}}</strong> {{message?.body}}.
+    </div>
+</div> -->
+
+
+<!-- *ngIf="isNotification" -->
+
+<!-- fade -->
+<div class="custom-alert">
+  <div *ngFor="let message of messages;let i = index" id="{{'myModal' + i}}" class="modal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <strong class="modal-title">{{message?.title}}</strong>
+          <button type="button" class="close" data-dismiss="modal" (click)="closeNotification(i)">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>{{message?.body}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" *ngIf="message.notificationType === '2'"
+            (click)="closeNotification(i)">OK</button>
+          <a type="button" class="btn btn-default" data-dismiss="modal"
+            *ngIf="message.notificationType == '3' && message.click_action" [href]="message.click_action"
+            >Accept</a>
+          <button type="button" class="btn btn-default" data-dismiss="modal" *ngIf="message.notificationType == '3'"
+            (click)="closeNotification(i)">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

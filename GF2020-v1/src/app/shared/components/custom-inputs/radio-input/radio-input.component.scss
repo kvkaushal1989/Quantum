@@ -1,0 +1,44 @@
+// .radio-group {
+//     display: flex;
+//     flex-direction: row;
+//     margin: 15px 0;
+//   }
+  
+.radio-button {
+  margin: 15px 8px;
+}
+ 
+::ng-deep {
+  label.mat-radio-label {
+    margin: 0px !important;
+    font-family: "Exo 2", sans-serif !important;
+    color: #567C87;
+    font-size: 16px;
+  }
+
+  .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #00B8F1 !important;
+  }
+
+  .mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: #00B8F1 !important  ;
+  }
+
+  .mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: #00B8F1 !important  ;
+  }
+
+  .mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: #00B8F1 !important;
+  }
+
+  .mat-radio-outer-circle {
+    border-color: #D7DEE0 !important;
+    background: white !important;
+  }
+}
+
+::ng-deep .mat-radio-button{
+  font-family: "Exo 2", sans-serif !important;
+
+}

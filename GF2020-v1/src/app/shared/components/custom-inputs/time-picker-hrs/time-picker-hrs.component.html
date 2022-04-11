@@ -1,0 +1,6 @@
+<mat-form-field class="example-full-width">
+  <mat-label>{{label}}</mat-label>
+  <label>{{prefix}}</label>
+  <input matInput type="time" [name]="name" step="0" disabled="{{disabled ? 'true' : 'false'}}"
+    [(ngModel)]="defaultValue" #textInput="ngModel" (input)="onUserInput(name,defaultValue)" placeholder="HH:mm" />
+</mat-form-field>

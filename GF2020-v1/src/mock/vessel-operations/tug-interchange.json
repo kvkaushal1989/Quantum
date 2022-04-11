@@ -1,0 +1,64 @@
+{
+    "Setting": {
+      "Status": "Success",
+      "StatusCode": "GFE000001",
+      "Data": {
+        "tug_int_settingpk": 1,
+        "interchange_points": "D5465654",
+        "interchange_tugs": null,
+        "serviceList": [
+          {
+            "tug_int_servicepk": 0,
+            "servicemstfk": 34,
+            "service_name": "D5465654",
+            "applyflag": false
+          }
+        ],
+        "portList": [
+          {
+            "tug_int_portpk": 1,
+            "servicemstfk": 2,
+            "port_id": "PYPIL",
+            "port_name": "Pilar"
+          }
+        ],
+        "hiddenfield": ""
+      }
+    },
+    "Tug_Intercjange_List": {
+        "Status": "Success",
+        "StatusCode": "GFE000001",
+        "Data":  [{
+            "vesselmaster_pk": 258,
+            "vessel_image": "",
+            "vessel_name": "GUARAN F 501",
+            "vessel_code": "501",
+            "commercial_schedule_hdr_pk": 46,
+            "voynr": "V001S",
+            "servicename": "Montevideo-Asuncion",
+            "portmaster_pk": 6,
+            "port_name": "Asuncion",
+            "eta": "2020-07-16T06:00:00",
+            "etd": "2020-07-20T09:00:00",
+            "ata_status": 1,
+            "atd_status": 0,
+            "int_ports": [
+              {
+                "portmaster_pk": 7,
+                "port_id": "PYPIL",
+                "port_name": "Pilar",
+                "eta": "2020-07-28T00:00:00+05:30",
+                "ata_status": 1
+              },
+              {
+                "portmaster_pk": 8,
+                "port_id": "UYMVD",
+                "port_name": "Montevideo",
+                "eta": "2020-07-28T00:00:00+05:30",
+                "ata_status": 1
+              }
+            ],
+            "hiddenField": ""
+          }]
+        }
+  }

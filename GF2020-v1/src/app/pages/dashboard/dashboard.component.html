@@ -1,0 +1,215 @@
+  <div class="row">
+    <div class="col-4 mgn_btm_30 custom_col3" *ngIf="dataList.dashboardAccessRights.booking_view===true">
+      <h3 class="dashboard_title">My Bookings</h3>
+      <div class="dashboard_card">
+        <ul class="card_ul">
+          <li>
+            <h4>{{dataList.bookingDetails.totalCnt}}</h4>
+            <p>Total</p>
+            <p class="view_p" (click)="navigateForm('Total')">View Details</p>
+           
+          </li>
+          <li>
+            <h4>{{dataList.bookingDetails.provCnt}}</h4>
+            <p>Provisional</p>
+            <p class="view_p" (click)="navigateForm('prov')">View Details</p>
+          </li>
+          <li>
+            <h4>{{dataList.bookingDetails.confirmCnt}}</h4>
+            <p>Confirmed</p>
+            <p class="view_p" (click)="navigateForm('confirm')">View Details</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-4 mgn_btm_30 custom_col3" *ngIf="dataList.dashboardAccessRights.schedule_view===true">
+      <h3 class="dashboard_title">Schedules</h3>
+      <div class="dashboard_card">
+        <ul class="card_ul">
+          <li *ngFor="let schedule of dataList.chsList">
+            <h4> <img class="ship_img"
+                src="https://cdn.iconscout.com/icon/premium/png-256-thumb/cargo-ship-2370546-1977809.png">{{schedule.vslvoy}}
+            </h4>
+            <p>{{schedule.eta | date : 'h:mm a, d MMM'}}</p>
+            <p class="view_p" (click)="navigatescheduleForm(schedule)">View Details</p>
+          </li>
+          <div class="col-md-12 dashboard-loadmore-text mt-2" *ngIf="totalRecords > endRecord">
+            <span class="load-span" (click)="getChsList(true)">{{ 'LOADMORE' }}</span>
+        </div>
+        </ul>
+      </div>
+    </div>
+    <div class="col-4 mgn_btm_30 custom_col3"  *ngIf="dataList.dashboardAccessRights.alert_view===true">
+      <h3 class="dashboard_title">My Alerts and Notifications</h3>
+      <div class="dashboard_card">
+        <ul class="card_ul">
+          <li class="inline_li" *ngFor="let m of mockJson.alertAndNotification">
+            <mat-icon [style.color]="m.color" style="margin-right: 10px;">{{m.icon}}</mat-icon>
+            <span>
+              {{m.name}}
+            </span>
+            <span class="count_span"  [style.color]="m.color">
+              {{m.count}}
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-4 mgn_btm_30 custom_col3" *ngIf="dataList.dashboardAccessRights.allocation_view===true">
+      <h3 class="dashboard_title">Allocations</h3>
+      <div class="dashboard_card" style="padding: 0px;">
+        <div class="flex_row " style="background: #e6f8fe;">
+          <div class="col-md-4" style="text-align: left;"><span class="heading_span" >Barge/Voyage</span></div>
+          <div class="col-md-8">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-4"><span class="heading_span" >Allocation</span></div>
+                <div class="col-md-4"><span class="heading_span">Booked</span></div>
+                <div class="col-md-4"><span class="heading_span">Variance</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="padding: 0px;">
+          <div class="flex_row line-change" *ngFor="let x of dataList.allocationList ">
+            <div class="col-md-4">
+              <span class="range_span textWrapper" (click)="navigateAllocationForm(x)">{{x.vslVoy}}</span>
+            </div>
+            <div class="col-md-8">
+              <div class="container">
+                <div class="row line-change">
+                  <div class="col-md-4 card_ul" >
+                    <h4>{{x.allocationCnt}}</h4>
+                  </div>
+                  <div class="col-md-4 card_ul" >
+                    <h4>{{x.bookedCnt}}</h4>
+                  </div>
+                  <div class="col-md-4 card_ul"  >
+                    <h4 [ngClass]="{'change-color':x.varienceCnt < 0}">{{x.varienceCnt.toString().replace('-','')}}</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 dashboard-loadmore-text" *ngIf="totalRecords > endRecord">
+          <span class="load-span" (click)="getAllocationList(true)" >{{ 'LOADMORE' }}</span>
+      </div>
+      </div>
+
+    </div>
+    <div class="col-4 mgn_btm_30 custom_col3" *ngIf="dataList.dashboardAccessRights.billing_view===true">
+      <h3 class="dashboard_title">Billing</h3>
+      <div class="dashboard_card">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-5" style="padding: 0px;">
+              <ul class="card_ul">
+                <li style="padding-top: 50px;">
+                  <h4>{{dataList.billingList.invoiceAmt | numberFormatter}}</h4>
+                  <p>New Invoice rcvd.</p>
+                  <p class="view_p" style="float: none;margin: 0px;" (click)="navigateBillingForm()">View Details</p>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-7" style="padding: 0px;">
+              <ul class="card_ul">
+                <li >
+                  <h4>{{dataList.billingList.curId}} {{dataList.billingList.invoiceAmt | numberFormatter}}</h4>
+                  <p>Invoice Amt.</p>
+                  <!-- <p style="color: #d26161;"></p> -->
+                </li>
+                <li >
+                  <h4>{{dataList.billingList.curId}} {{dataList.billingList.paidAmt | numberFormatter}}</h4>
+                  <p>Paid amt.</p>
+                  <!-- <p style="color: #d26161;"></p> -->
+                </li>
+                <li >
+                  <h4>{{dataList.billingList.curId}} {{dataList.billingList.osAmt | numberFormatter}}</h4>
+                  <p>Outstanding Amount</p>
+                  <!-- <p style="color: #d26161;">{{dataList.billingList.osAmt}}</p> -->
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 mgn_btm_30 custom_col3" *ngIf="dataList.dashboardAccessRights.documentation_view===true">
+      <h3 class="dashboard_title">Documentation</h3>
+      <div class="dashboard_card">
+        <ul class="card_ul">
+          <li *ngFor="let m of mockJson.documentation">
+            <h4> <span class="circle_span" [style.background-color]="m.bgColor" [style.color]="m.color"
+                style="left: 25px;">
+                {{m.count}}
+              </span>{{m.name}}</h4>
+            <p class="view_p" (click)="navigateDocumentForm(m)">View Details</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-4 mgn_btm_30 custom_col3" *ngIf="dataList.dashboardAccessRights.nbVol_view===true">
+      <h3 class="dashboard_title">North Bound</h3>
+      <div class="dashboard_card">
+        <!-- <app-line-charts ></app-line-charts>
+        <app-line-charts [lineChartData]="chartData" [lineChartLabels]="chartData.lineChartLabels"></app-line-charts> -->
+        <!-- <img src="assets/images/dashboard/north_bound.png" style="width: 92%;height: 100%;"> -->
+        <div style="display: block;">
+          <canvas baseChart width="420" height="200"
+            [datasets]="lineNboundData"
+            [labels]="nBoundlineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartNBColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"
+            [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4 mgn_btm_30 custom_col3" *ngIf="dataList.dashboardAccessRights.sbVol_view===true">
+      <h3 class="dashboard_title">South Bound</h3>
+      <div class="dashboard_card">
+        <!-- <img src="assets/images/dashboard/south_bound.png" style="width: 92%;height: 100%;"> -->
+         <div style="display: block;">
+          <canvas baseChart width="420" height="200"
+            [datasets]="lineSouthData"
+            [labels]="sBoundlineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartSBColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"
+            [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4 mgn_btm_30 custom_col3" *ngIf="dataList.dashboardAccessRights.billhistory_view===true">
+      <h3 class="dashboard_title">Billing</h3>
+      <div class="dashboard_card">
+        <!-- <img src="assets/images/dashboard/billing.png" style="width: 92%;height: 100%;"> -->
+        <div style="display: block;">
+          <canvas baseChart width="420" height="200"
+            [datasets]="lineBillData"
+            [labels]="billHistlineChartLabels"
+            [options]="lineChartOptions1"
+            [colors]="lineChartNBColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"
+            [plugins]="lineChartPlugins">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 loadmore-text-animation loader_div" *ngIf="isLoading">
+    <button class="btn btn-primary load-animation">
+      <span class="spinner-border spinner-border-sm spinner-style"></span>
+    </button>
+    <p>{{loaderMessage}}</p>
+  </div>

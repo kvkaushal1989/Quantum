@@ -1,0 +1,67 @@
+
+    <div class="simple-text-input-wrapper">
+        <div class="simple-text-input-table">
+          <div class="simple-text-input-prefix" *ngIf="isPrefix">
+            <div select="[simple-text-prefix]" [innerHTML]="'htmlStr'"></div>
+          </div>
+      
+          <div class="simple-text-input-infix">
+            <input
+                type="text"
+                [required]="required"
+                [placeholder]="placeholder" 
+                [tabindex]="taborder" 
+                [value]="value"
+                [(ngModel)]="value"
+                [readonly]="readonly" 
+      
+                [autofocus]="focused"
+                [disabled]="disabled"
+                class="simple-text-input-element input" 
+                [id]="identifier"  
+                
+                google-place
+                
+                #addresstext
+            /> 
+                <!-- (onSelect)="onSelectEmit($event)" -->
+            
+            <label *ngIf="label" 
+              class="simple-text-input-placeholder"
+              [attr.for]="inputId"
+              [class.required]="required"
+              [class.simple-text-empty]="empty"
+              [class.simple-text-focused]="focused"
+              [class.simple-text-float]="isFloatLabel"
+              [class.simple-text-accent]="dividerColor == 'accent'"
+              [class.simple-text-warn]="dividerColor == 'warn'" 
+            > {{ label }} </label> 
+          </div>
+      
+          <div class="simple-text-input-suffix" *ngIf="isSuffix"><ng-content select="[simple-text-suffix]"></ng-content></div>
+        </div>
+          
+          <div class="simple-text-input-underline"
+             [class.simple-text-disabled]="isDisabled">
+            <span class="simple-text-input-ripple"
+                  [class.simple-text-focused]="focused"
+                  [class.simple-text-accent]="dividerColor == 'accent'"
+                  [class.simple-text-warn]="dividerColor == 'warn'"></span>
+          </div>
+      
+          <div *ngIf="isHint==true" class="simple-text-hint">{{hintText}}</div>
+          <div select="simple-text-hint"></div>
+    </div>
+    
+    <!-- <pre>{{ errorStatus | json}}</pre>  -->
+    <div class="error" *ngIf="errorStatus != null && errorStatus.errors && (errorStatus.touched || errorStatus.dirty)">
+        <div *ngIf="errorStatus.errors && errorStatus.errors['required']" class="alert alert-danger">
+            {{label}} is required.
+        </div>
+        <div *ngIf="errorStatus.errors && errorStatus.errors['minlength']" class="alert alert-danger">
+            Minimum {{minlength}} characters are required.
+        </div>
+        <div *ngIf="errorStatus.errors && errorStatus.errors['maxlength']" class="alert alert-danger">
+            Maximum {{maxlength}} characters are allowed.
+        </div>
+    </div>

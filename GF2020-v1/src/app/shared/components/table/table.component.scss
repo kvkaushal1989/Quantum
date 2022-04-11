@@ -1,0 +1,16 @@
+.active-color{
+    color: green;
+}
+
+.in-active-color{
+    color: red ;
+}
+
+
+::ng-deep .country-table .ui-table .ui-table-thead > tr > th:nth-child(1){
+    width: 40px !important;
+}
+
+::ng-deep .country-table .ui-table .ui-table-tbody > tr > td:nth-child(1){
+    width: 40px !important;
+}

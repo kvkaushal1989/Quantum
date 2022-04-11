@@ -1,0 +1,5 @@
+
+
+<mat-checkbox #checkBox [ngStyle]="{'display':isVerticalAlign?'block':'inline'}" [(ngModel)]="!item.value ? ''  : item.value " 
+*ngFor="let item of checkBoxItems;let i = index;" [value]="item"  [labelPosition]="labelPosition"
+(click)="onCheckBoxSelection(item,'')">{{item.label}}</mat-checkbox>

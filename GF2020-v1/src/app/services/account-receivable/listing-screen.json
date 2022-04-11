@@ -1,0 +1,82 @@
+
+  {
+    "Data": [{
+    "paymenttype": 1,
+    "payment": "Pre-Paid",
+    "country_name": "Argentina",
+    "RuleList": [{
+      "vatrulespk": 0,
+      "countryfk": 11,
+      "invoice": "VAT1",
+      "orgin": "VAT1",
+      "destination": "VAT1",
+      "chargemasterfk": "19",
+      "charge_id": "BOF",
+      "charge_name": "Basic Ocean Freight",
+      "vat_name": "VAT1",
+      "vat_percentage": 10.5,
+      "vat_base":10.5,
+      "updatedby":10.5,
+      "last_updated_on":10.5
+    }]
+    },
+    { "paymenttype": 2,
+    "payment": "Collection",
+    "country_name": "Argentina",
+    "RuleList": [{
+      "vatrulespk": 0,
+      "countryfk": 11,
+      "invoice": "VAT1",
+      "orgin": "VAT1",
+      "destination": "VAT1",
+      "chargemasterfk": "19",
+      "charge_id": "BOF",
+      "charge_name": "Basic Ocean Freight",
+      "vat_name": "VAT1",
+      "vat_percentage": 10.5,
+      "vat_base":10.5,
+      "updatedby":10.5,
+      "last_updated_on":10.5
+    }]
+    },
+    { "paymenttype": 3,
+    "payment": "Foreign",
+    "country_name": "Argentina",
+    "RuleList": [{
+      "vatrulespk": 0,
+      "countryfk": 11,
+      "invoice": "VAT1",
+      "orgin": "VAT1",
+      "destination": "VAT1",
+      "chargemasterfk": "19",
+      "charge_id": "BOF",
+      "charge_name": "Basic Ocean Freight",
+      "vat_name": "VAT1",
+      "vat_percentage": 10.5,
+      "vat_base":10.5,
+      "updatedby":10.5,
+      "last_updated_on":10.5
+    }]
+    },
+    { "paymenttype": 4,
+    "payment": "Cabotage",
+    "country_name": "Argentina",
+    "RuleList": [{
+      "vatrulespk": 0,
+      "countryfk": 11,
+      "invoice": "VAT1",
+      "orgin": "VAT1",
+      "destination": "VAT1",
+      "chargemasterfk": "19",
+      "charge_id": "BOF",
+      "charge_name": "Basic Ocean Freight",
+      "vat_name": "VAT1",
+      "vat_percentage": 10.5,
+      "vat_base":10.5,
+      "updatedby":10.5,
+      "last_updated_on":10.5
+    }]
+    }
+    ]
+  }
+  

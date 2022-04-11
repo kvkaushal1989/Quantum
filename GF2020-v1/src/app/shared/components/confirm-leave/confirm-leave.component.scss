@@ -1,0 +1,30 @@
+.unsaved_modal {
+  background: #fff;
+  width: 400px;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 15px;
+  margin-top: 50px;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, 50%);
+  box-shadow: 0 7px 8px -4px rgba(0, 0, 0, 0.2), 0 12px 17px 2px rgba(0, 0, 0, 0.14), 0 5px 22px 4px rgba(0, 0, 0, 0.12);
+
+  mat-icon {
+    color: #e24d4d;
+    vertical-align: sub;
+    margin-right: 10px;
+  }
+
+  h5 {
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  p {
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 14px;
+  }
+}

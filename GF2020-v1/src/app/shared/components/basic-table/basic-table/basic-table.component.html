@@ -1,0 +1,36 @@
+<table class="table table-striped">
+    <thead class="thead-default">
+        <tr>
+            <th scope="col" *ngFor="let colObj of columnList; let colIndex = index" style="width: 1em" [style.width]="colObj.width" [style.textAlign]="colObj.textAlign" isSortable="colObj.isSortable" sortable="name" (sort)="onSort($event, colObj.isSortable)">
+                {{ colObj.header | titlecase }}
+
+                <!-- <i *ngIf="col.field !== 'flag' && col.field !== 'HiddenField'" [field]="col.field"></i> -->
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let lisObj of dataList; let listIndex = index">
+            <td scope="row" *ngFor="let colObj of columnList; let colIndex = index" class="{{ lisObj.active == 0 ? 'disable-row' : '' }}" [style.width]="colObj.width" [style.textAlign]="colObj.textAlign">
+                <ng-container>
+                    <div *ngIf="lisObj[colObj.field] !== 'HiddenField'" [innerHTML]="lisObj[colObj.field]"></div>
+
+                    <div *ngIf="lisObj[colObj.field] == 'HiddenField'">
+
+                        <!-- <div *ngIf="col.field === 'HiddenField'" (click)="showDeactiveModal(tempData)">
+                <mat-select name="selectOption" [(ngModel)]="optionChange" class="custom-select-box"
+                    (selectionChange)="onOptionChange()">
+                    <mat-option *ngFor="let ty of [
+                        {value: '1', viewValue: 'Edit'},
+                        {value: '2', viewValue: 'De-Activate'},
+                        {value: '3', viewValue: 'Delete'}
+                      ];" [value]="ty.value">
+                        <span class="box-21">{{ty.viewValue}}</span>
+                    </mat-option>
+                </mat-select>
+              </div> -->
+                    </div>
+                </ng-container>
+            </td>
+        </tr>
+    </tbody>
+</table>

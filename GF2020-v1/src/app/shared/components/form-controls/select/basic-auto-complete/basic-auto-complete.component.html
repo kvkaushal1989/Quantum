@@ -1,0 +1,157 @@
+<div class="basic-auto-complete-section {{class}}">
+    <label style="display:block" class="basic-label" [ngClass]="{ 'required' : required}">{{label}}</label>
+
+    <div (mousedown)="handleMousedown($event)" [class.basic-appearance-outline]="appearance === 'outline'"
+        [class.basic-has-value]="hasValue" class="basic-auto-complete-container">
+
+        <div class="basic-value-container">
+            <div class="basic-placeholder">{{placeholder}}</div>
+            <ng-container *ngIf="!multiLabelTemplate && selectedItems.length > 0">
+                <div [class.basic-value-disabled]="item.disabled" class="basic-value"
+                    *ngFor="let item of selectedItems; trackBy: trackByOption">
+                    <ng-template #defaultLabelTemplate>
+                        <span class="basic-value-icon left" (click)="unselect(item);" aria-hidden="true">×</span>
+                        <span class="basic-value-label" [ngItemLabel]="item.label" [escape]="escapeHTML"></span>
+                    </ng-template>
+
+                    <ng-template [ngTemplateOutlet]="labelTemplate || defaultLabelTemplate"
+                        [ngTemplateOutletContext]="{ item: item.value, clear: clearItem, label: item.label }">
+                    </ng-template>
+                </div>
+            </ng-container>
+
+            <ng-template *ngIf="multiLabelTemplate && selectedValues.length > 0" [ngTemplateOutlet]="multiLabelTemplate"
+                [ngTemplateOutletContext]="{ items: selectedValues, clear: clearItem }">
+            </ng-template>
+            <span class="selected-tagged-btn" *ngIf="taggedButton">{{ taggedButton }}</span>
+            <div class="basic-input">
+
+                <input #searchInput class="gf2020-auto-searchInput" [required]="required" [attr.id]="labelForId"
+                    [attr.tabindex]="tabIndex" [required]="required"
+                    [readOnly]="!searchable || itemsList.maxItemsSelected" [disabled]="disabled"
+                    [value]="searchTerm ? searchTerm : ''" (input)="filter(searchInput.value)"
+                    (compositionstart)="onCompositionStart()" (compositionend)="onCompositionEnd(searchInput.value)"
+                    (focus)="onInputFocus($event)" (blur)="onInputBlur($event)" (change)="$event.stopPropagation()"
+                    role="combobox" [attr.aria-expanded]="isOpen" [attr.aria-owns]="isOpen ? dropdownId : null"
+                    [attr.aria-activedescendant]="isOpen ? itemsList?.markedItem?.htmlId : null">
+            </div>
+        </div>
+
+        <ng-container *ngIf="loading">
+            <ng-template #defaultLoadingSpinnerTemplate>
+                <div class="basic-spinner-loader"></div>
+            </ng-template>
+
+            <ng-template [ngTemplateOutlet]="loadingSpinnerTemplate || defaultLoadingSpinnerTemplate">
+            </ng-template>
+        </ng-container>
+
+        <span *ngIf="showClear()" class="basic-clear-wrapper" title="{{clearAllText}}">
+            <span class="basic-clear" aria-hidden="true">×</span>
+        </span>
+
+        <span class="basic-arrow-wrapper">
+            <span class="basic-arrow"></span>
+        </span>
+    </div>
+
+    <basic-dropdown-panel *ngIf="isOpen" class="basic-dropdown-panel" [virtualScroll]="virtualScroll"
+        [bufferAmount]="bufferAmount" [appendTo]="appendTo" [position]="dropdownPosition"
+        [headerTemplate]="headerTemplate" [footerTemplate]="footerTemplate" [filterValue]="searchTerm"
+        [items]="itemsList.filteredItems" [markedItem]="itemsList.markedItem" (update)="viewPortItems = $event"
+        (scroll)="scroll.emit($event)" (scrollToEnd)="scrollToEnd.emit($event)" (outsideClick)="close()"
+        [class.basic-auto-complete-multiple]="multiple" [ngClass]="appendTo ? classes : null" [id]="dropdownId">
+        <ng-container>
+            <div class="basic-option" [attr.role]="item.children ? 'group' : 'option'"
+                (click)="toggleItem(item)" (mouseover)="onItemHover(item)"
+                *ngFor="let item of viewPortItems; trackBy: trackByOption" [class.basic-option-disabled]="item.value.disabled"
+                [class.basic-option-selected]="item.selected" [class.basic-optgroup]="item.children"
+                [class.basic-option]="!item.children" [class.basic-option-child]="!!item.parent"
+                [class.basic-option-marked]="item === itemsList.markedItem" [attr.aria-selected]="item.selected"
+                [attr.id]="item?.htmlId">
+                <!-- {{item.value.disabled}} -->
+                <ng-template #defaultOptionTemplate>
+                    <span class="basic-option-label" [ngItemLabel]="item.label" [escape]="escapeHTML"></span>
+                </ng-template>
+
+                <ng-template
+                    [ngTemplateOutlet]="item.children ? (optgroupTemplate || defaultOptionTemplate) : (optionTemplate || defaultOptionTemplate)"
+                    [ngTemplateOutletContext]="{ item: item.value, item$:item, index: item.index, searchTerm: searchTerm }">
+                </ng-template>
+            </div>
+
+            <div class="basic-option" [class.basic-option-marked]="!itemsList.markedItem"
+                (mouseover)="itemsList.unmarkItem()" role="option" (click)="selectTag()" *ngIf="showAddTag">
+                <ng-template #defaultTagTemplate>
+                    <span><span class="basic-tag-label">{{addTagText}}</span>"{{searchTerm}}"</span>
+                </ng-template>
+
+                <ng-template [ngTemplateOutlet]="tagTemplate || defaultTagTemplate"
+                    [ngTemplateOutletContext]="{ searchTerm: searchTerm }">
+                </ng-template>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="showNoItemsFound()">
+            <ng-template #defaultNotFoundTemplate>
+                <div class="basic-option basic-option-disabled">{{notFoundText}}</div>
+            </ng-template>
+
+            <ng-template [ngTemplateOutlet]="notFoundTemplate || defaultNotFoundTemplate"
+                [ngTemplateOutletContext]="{ searchTerm: searchTerm }">
+            </ng-template>
+        </ng-container>
+
+        <ng-container *ngIf="showTypeToSearch()">
+            <ng-template #defaultTypeToSearchTemplate>
+                <div class="basic-option basic-option-disabled">{{typeToSearchText}}</div>
+            </ng-template>
+
+            <ng-template [ngTemplateOutlet]="typeToSearchTemplate || defaultTypeToSearchTemplate">
+            </ng-template>
+        </ng-container>
+
+        <ng-container *ngIf="loading && itemsList.filteredItems.length === 0">
+            <ng-template #defaultLoadingTextTemplate>
+                <div class="basic-option basic-option-disabled">{{loadingText}}</div>
+            </ng-template>
+
+            <ng-template [ngTemplateOutlet]="loadingTextTemplate || defaultLoadingTextTemplate"
+                [ngTemplateOutletContext]="{ searchTerm: searchTerm }">
+            </ng-template>
+        </ng-container>
+
+    </basic-dropdown-panel>
+</div>
+
+
+<!-- <div class="error" *ngIf="searchInput.errors && (searchInput.touched || searchInput.dirty) && !searchInput.valid">
+    <div *ngIf="required && searchInput.errors.required" class="alert alert-danger">
+        {{label}} is required.
+    </div> 
+</div> -->
+<!-- _elementRef : {{_elementRef | json }}
+classes : {{classes | json}}
+searchInput : {{searchInput | json}}
+searchInput.errors : {{searchInput.errors | json}}
+searchInput.touched : {{searchInput.touched | json}}
+searchInput.dirty : {{searchInput.dirty | json}}
+searchInput.valid : {{searchInput.valid | json}} -->
+<!-- {{selectedItems.length}} -->
+<!-- errorStatus.errors: {{errorStatus.errors | json}}
+errorStatus.touched :{{errorStatus.touched | json}}
+errorStatus.dirty : {{errorStatus.dirty | json}}
+errors {{errors | json}} -->
+<!-- errorStatus: {{errorStatus | json}} -->
+<div class="error" *ngIf="errorStatus == null && required && isTouched">
+    <div *ngIf="required && selectedItems.length <= 0" class="alert alert-danger">
+        {{label}} is required.
+    </div>
+</div>
+
+<div class="error" *ngIf="errorStatus != null && errorStatus.errors && (errorStatus.touched || errorStatus.dirty)">
+    <div *ngIf="errorStatus.errors && errorStatus.errors['required']" class="alert alert-danger">
+        {{label}} is required.
+    </div>
+    <!-- <div *ngIf="errors && errors['required']"> {{label}} is required. </div> -->
+</div>

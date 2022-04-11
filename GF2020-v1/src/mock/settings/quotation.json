@@ -1,0 +1,188 @@
+{
+  "FetchHeaderForPrint": 
+    {
+      "Status": "Success",
+      "StatusCode": "GFS000001",
+      "Data": [
+        {
+          "quotsettingpk": 50,
+          "quotmasterfk": 34,
+          "quotdetailpk": 97,
+          "customermasterfk": 13,
+          "customername": "Mediterranian Shipping Company8",
+          "containerstatusifk": "3",
+          "fromportfk": 5,
+          "toportfk": 6,
+          "fromportID": "ARBUE",
+          "toportID": "PYASU",
+          "polList": "ASU",
+          "podList": "BUE",
+          "quotefor": "Full & Empty",
+          "referenceNo": "QTN-2021/013-MSC",
+          "createdDate": "28/05/2020",
+          "validfrom": "18/06/2020",
+          "validto": "18/06/2020",
+          "expireIn": "Expires In -18 days",
+          "freight_payment": "Hapag Llyod, Buenos Aires",
+          "local_charges": "Agencia Marítima",
+          "CommodityGroup": "General, Reefer, HazMat",
+          "charges": [
+            {
+              "Commodity": "Gen, Rar, Haz, Mty",
+              "chargeID": "AIF",
+              "chargeName": "All In Freight",
+              "currency": "USD",
+              "quote20": "7,284.40",
+              "quote40": "14,017.60",
+              "RFH40": "14,017.60",
+              "TOS": "LI/LO"
+            }
+          ],
+          "clause_list": [
+            {
+              "clause_pk": 1,
+              "clause_id": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet."
+            },
+            {
+              "clause_pk": 1,
+              "clause_id": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit Neque porro quisquam est qui dolorem ipsum."
+            },
+            {
+              "clause_pk": 1,
+              "clause_id": "Neque porro quisquam est qui dolorem ipsum quia dolor."
+            },
+            {
+              "clause_pk": 1,
+              "clause_id": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit Neque porro quisquam est qui dolorem ipsum."
+            },
+            {
+              "clause_pk": 1,
+              "clause_id": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,"
+            },
+            {
+              "clause_pk": 1,
+              "clause_id": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet."
+            }
+          ],
+          "chargeDetails": [
+            {
+              "quotchargedetailpk": 639,
+              "quotdetailfk": 97,
+              "chargemasterfk": 44,
+              "bofchargefk": 42,
+              "tosfk": 1,
+              "tosid": "FI/FO",
+              "charge_id": "CAF",
+              "charge_name": "Currency Adjustment Factor",
+              "chargetype_ifk": "C",
+              "currencyfk": 151,
+              "currency_code_ifk": "USD",
+              "commoditygroupfk": 2,
+              "chargebasisfk": 4,
+              "rate": 10,
+              "exchangeRate": 1,
+              "tariff_20_rate": 48,
+              "quot_20_rate": 48,
+              "tariff_40_rate": 92,
+              "quot_40_rate": 92,
+              "tariff_hc_rate": 92,
+              "quot_hc_rate": 92
+            },
+            {
+              "quotchargedetailpk": 655,
+              "quotdetailfk": 97,
+              "chargemasterfk": 35,
+              "bofchargefk": 42,
+              "tosfk": 1,
+              "tosid": "FI/FO",
+              "charge_id": "TRS123",
+              "charge_name": "Test Surcharge",
+              "chargetype_ifk": "C",
+              "currencyfk": 151,
+              "currency_code_ifk": "USD",
+              "commoditygroupfk": 2,
+              "chargebasisfk": 2,
+              "rate": null,
+              "exchangeRate": 1,
+              "tariff_20_rate": 280,
+              "quot_20_rate": 280,
+              "tariff_40_rate": 420,
+              "quot_40_rate": 420,
+              "tariff_hc_rate": 420,
+              "quot_hc_rate": 420
+            },
+            {
+              "quotchargedetailpk": 654,
+              "quotdetailfk": 97,
+              "chargemasterfk": 11,
+              "bofchargefk": 42,
+              "tosfk": 1,
+              "tosid": "FI/FO",
+              "charge_id": "BAF",
+              "charge_name": "Bunker Adjustment Factor",
+              "chargetype_ifk": "C",
+              "currencyfk": 151,
+              "currency_code_ifk": "USD",
+              "commoditygroupfk": 2,
+              "chargebasisfk": 2,
+              "rate": null,
+              "exchangeRate": 1,
+              "tariff_20_rate": 380,
+              "quot_20_rate": 380,
+              "tariff_40_rate": 320,
+              "quot_40_rate": 320,
+              "tariff_hc_rate": 320,
+              "quot_hc_rate": 320
+            },
+            {
+              "quotchargedetailpk": 653,
+              "quotdetailfk": 97,
+              "chargemasterfk": 10,
+              "bofchargefk": 42,
+              "tosfk": 1,
+              "tosid": "FI/FO",
+              "charge_id": "HAZ",
+              "charge_name": "Hazmat Surcharge",
+              "chargetype_ifk": "C",
+              "currencyfk": 151,
+              "currency_code_ifk": "USD",
+              "commoditygroupfk": 2,
+              "chargebasisfk": 2,
+              "rate": null,
+              "exchangeRate": 1,
+              "tariff_20_rate": 480,
+              "quot_20_rate": 480,
+              "tariff_40_rate": 920,
+              "quot_40_rate": 920,
+              "tariff_hc_rate": 920,
+              "quot_hc_rate": 920
+            },
+            {
+              "quotchargedetailpk": 656,
+              "quotdetailfk": 97,
+              "chargemasterfk": 42,
+              "bofchargefk": 42,
+              "tosfk": 1,
+              "tosid": "FI/FO",
+              "charge_id": "BOF",
+              "charge_name": "Basic Ocean Freight",
+              "chargetype_ifk": "C",
+              "currencyfk": 151,
+              "currency_code_ifk": "USD",
+              "commoditygroupfk": 2,
+              "chargebasisfk": 2,
+              "rate": null,
+              "exchangeRate": 1,
+              "tariff_20_rate": 480,
+              "quot_20_rate": 480,
+              "tariff_40_rate": 920,
+              "quot_40_rate": 920,
+              "tariff_hc_rate": 920,
+              "quot_hc_rate": 920
+            }
+          ]
+        }
+      ]
+    }
+  
+}

@@ -1,0 +1,12 @@
+
+::ng-deep .pi-chevron-right:before {
+    content: "\002B" !important;
+    font-weight: bold;
+}
+
+
+::ng-deep .pi-chevron-down:before {
+    content: "\2212" !important;
+    font-weight: bold;
+
+}

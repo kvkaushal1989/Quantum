@@ -1,0 +1,166 @@
+<!-- <p>
+    print-test works!
+</p> -->
+<!-- <section>
+    <div class="row">
+        <div class="col-md-6">
+            <button (click)="printFn()">Print</button>
+        </div>
+
+        <div class="col-md-6">
+            <button (click)="openShare()">Share</button>
+        </div>
+    </div>
+</section>
+<a href="mailto:a@gmail.com?subject=my report&body=see attachment&attachment=c:\myfolder\myfile.txt">mail to</a>
+
+<div class="more-menu">
+    <button class="more-btn" mat-icon-button [matMenuTriggerFor]="more">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #more="matMenu">
+        <a mat-menu-item [matMenuTriggerFor]="share">
+            <mat-icon>share</mat-icon> Share
+        </a>
+    </mat-menu>
+    
+    <mat-menu #share="matMenu">
+        <a href="mailto:webmaster@example.com" mat-menu-item>
+            <mat-icon>email</mat-icon> Email
+        </a>
+    </mat-menu>
+</div> -->
+
+<!-- <section>
+    <div class="row">
+        <div class="col-md-12">
+            <button (click)="openShare()">Share</button>
+        </div>
+    </div>
+</section> -->
+
+<section class="custom-grid-list">
+    <div class="card mb-2">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-2 px-2">
+                    <h3 class="text-primary font-weight-semibold">Table ID <span class="px-2"></span></h3>
+                    <h6 class="text-secondary font-weight-semibold">
+                        <span class="font-weight-normal ml-3">22 Jul 2020</span>
+                    </h6>
+                </div>
+                <div class="col-md-3 px-2">
+                    <h3 class="text-primary font-weight-semibold">Port Name</h3>
+                </div>
+                <div class="col-md-3 px-2">
+                    <div class="row">
+                        <div class="col-10">
+                            <div class="row">
+                                <div class="col px-2 text-right">
+                                    <p class="text-primary font-weight-semibold">TEUs</p>
+                                </div>
+                                <div class="col px-2 text-right">
+                                    <img src="assets/images/ice-flex.png" alt="" />
+                                </div>
+                                <div class="col px-2 text-right">
+                                    <img src="assets/images/danger-icon.png" alt="" />
+                                </div>
+                                <div class="col px-2 text-right">
+                                    <p class="text-primary font-weight-semibold">Wt.</p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col  px-2 text-right">
+                                    <span class="text-secondary">12</span>
+                                </div>
+                                <div class="col px-2 text-right">
+                                    <span class="text-secondary">12</span>
+                                </div>
+                                <div class="col px-2 text-right">
+                                    <span class="text-secondary">12</span>
+                                </div>
+                                <div class="col  px-2 text-right">
+                                    <span class="text-secondary">12</span>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col  px-2 text-right">
+                                    <span class="text-danger">21</span>
+                                </div>
+                                <div class="col px-2 text-right">
+                                    <span class="text-danger">21</span>
+                                </div>
+                                <div class="col  px-2 text-right">
+                                    <span class="text-danger">21</span>
+                                </div>
+                                <div class="col   px-2 text-right">
+                                    <span class="text-danger">21</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-center px-2">
+                            <button class="btn text-secondary px-0"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-auto  px-2">
+                    <button class="btn btn-link btnCustom">5</button>
+                </div>
+
+                <div class="col-2 px-2">
+                    <p class="text-secondary">Booking Value</p>
+                    <h5 class="text-primary font-weight-semibold mb-2"> 100000 </h5>
+                    <a class="text-link font-weight-bold">View Details</a>
+                </div>
+
+                <div class="menuRight">
+                    <div class="more-menu">
+                        <button class="more-btn" mat-icon-button [matMenuTriggerFor]="more">
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+
+                        <mat-menu #more="matMenu">
+                            <a mat-menu-item (click)="printFn();">
+                                <mat-icon>print</mat-icon> Print
+                            </a>
+                            <a mat-menu-item [matMenuTriggerFor]="share">
+                                <mat-icon>{{'ShareLabel' | translate}}</mat-icon> {{'ShareLabel' | translate}}
+                            </a>
+                        </mat-menu>
+
+                        <mat-menu #share="matMenu">
+                            <!-- <a href="mailto:kaushal@quantum-bso.com?subject=Test Send File&body=Please Find  Attechment&attachment='asd'" mat-menu-item>
+                                <mat-icon>email</mat-icon> Email
+                            </a> -->
+
+                            <!-- <a mat-menu-item href="whatsapp://send?text=Proof%20That%20European%20Festival%20Fashion%20Is%20Better%20Than%20American%20Fashion%0A%0Ahttp%3A%2F%2Fwww.buzzfeed.com%2Fazafar%2Fproof-that-european-festival-fashion-is-better-than-american%3Fbfwa">
+                                <mat-icon>chat</mat-icon> Whatsapp
+                            </a> -->
+                            <a mat-menu-item (click)="openShare();">
+                                <mat-icon>send</mat-icon> Email
+                            </a>
+                        </mat-menu>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="card mb-2">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 px-2">
+                </div>
+                <div class="col-md-4 px-2">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

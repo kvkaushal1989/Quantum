@@ -1,0 +1,26 @@
+<!-- <div class="modal-header modal-block-primary unsaved_modal">
+  <h5 class="modal-title"><mat-icon>warning</mat-icon>Do you wish to leave the page ?</h5>
+</div>
+<div class="modal-body clearfix">
+  <div class="modal-text">
+    <p>You have unsaved changes on the current page that will be lost should you exit without saving that data.</p>
+    <br>
+    <p>Are you sure you wish to leave the page ?</p>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-default" (click)="action(false)">No</button>
+  <button class="btn btn-primary right" (click)="action(true)">Yes</button>
+</div> -->
+
+
+<div class="unsaved_modal">
+  <h5 class="modal-title"><mat-icon>warning</mat-icon>Do you wish to leave the page ?</h5>
+  <p>You have unsaved changes on the current page that will be lost should you exit without saving that data.</p>
+  <br>
+  <p>Are you sure you wish to leave the page ?</p>
+  <div class="modal-footer" style="border: none;">
+    <button class="btn btn-default" (click)="action(false)">No</button>
+    <button class="btn btn-primary right" (click)="action(true)">Yes</button>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+<p-table [columns]="columnsConfig" #dt [value]="data" sortMode="multiple" [resizableColumns]="isResizeable"
+    [scrollable]="isSortable" [(selection)]="selected" [paginator]="isPaginator" [rows]="numberOfRecordsPerPage"
+    [scrollHeight]="tableScrollHeight" [reorderableColumns]="isReorderable" (onRowSelect)="onCheckBoxSelect($event)"
+    (onRowUnselect)="onCheckBoxSelect($event)">
+    <!-- <ng-template pTemplate="caption">
+        <div style="text-align: right">
+            <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+            <input type="text" pInputText size="50" placeholder="Global Filter"
+                (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+        </div>
+    </ng-template> -->
+    <ng-template pTemplate="colgroup" let-columns>
+        <colgroup>
+            <col *ngFor="let col of columns" [style.width]="col.width" [style.textAlign]="col.textAlign">
+        </colgroup>
+    </ng-template>
+
+
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngIf="isCheckboxSelection" style="width: 1rem">
+                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
+            <th *ngFor="let col of columns" [style.width]="col.width"
+                [style.textAlign]="col.textAlign" [pSortableColumn]="col.field" pResizableColumn pReorderableColumn>
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-tempData let-columns="columns">
+        <tr [pSelectableRow]="tempData" (dblclick)="onRowSelect($event, tempData)">
+            <td *ngIf="isCheckboxSelection" style="width: 1rem;">
+                <p-tableCheckbox [value]="tempData"></p-tableCheckbox>
+            </td>
+            <td *ngFor="let col of columns" class="ui-resizable-column" [style.width]="col.width"
+                [style.textAlign]="col.textAlign">
+
+                <img *ngIf="col.field === 'flag'" src="{{tempData[col.field]}}"
+                    style="width: 50px; margin-right: 1em; vertical-align: middle;border-radius: 20px;">
+
+                <i *ngIf="col.field === 'active' && tempData[col.field] === 1"
+                    class="{{tempData[col.field] === 1 ? 'fa fa-check active-color' : 'fa fa-times in-active-color'}}"></i>
+
+                <span
+                    *ngIf="col.field !== 'flag' && col.field !== 'active' && col.field !== 'locationName'">{{tempData[col.field]}}</span>
+
+                <div *ngIf="col.field === 'countryName'">
+                    
+                    <a href="">{{tempData['countryCode2']}}</a> |
+                    <a href="">{{tempData['countryCode3']}}</a>
+                </div>
+
+                <div *ngIf="col.field === 'currencyName'">
+                    <a href="">{{tempData['currencyID']}}</a> |
+                    <a href="">{{tempData['currencySymbol']}}</a>
+                </div>
+
+                <div class="row" *ngIf="col.field === 'locationName'">
+                    <div class="col-md-6">
+                        <img [src]="tempData['locationImage']" width="50" height="50" style="border-radius: 26px;"/>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>{{tempData['locationName']}}</strong>
+                        <div>
+                            <a href="">{{tempData['locationId']}}</a>
+                        </div>
+                    </div>
+                </div>
+
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template *ngIf="isSummary" pTemplate="footer" let-columns>
+        <tr>
+            <td *ngIf="isCheckboxSelection" [style.width]="'1em'">
+                <!-- <p-tableHeaderCheckbox ></p-tableHeaderCheckbox> -->
+                <!-- <td></td> -->
+            </td>
+            <td *ngFor="let col of columns" [style.width]="col.width" [style.textAlign]="col.textAlign">
+                {{col.header}}
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        There are total of {{data?.length}} records
+    </ng-template>
+</p-table>

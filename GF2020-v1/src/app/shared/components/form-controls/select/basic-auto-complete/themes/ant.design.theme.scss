@@ -1,0 +1,332 @@
+@import 'mixins';
+$basic-auto-complete-highlight: #40a9ff !default;
+$basic-auto-complete-primary-text: rgba(0, 0, 0, 0.65) !default;
+$basic-auto-complete-disabled-text: rgba(0, 0, 0, 0.25) !default;
+$basic-auto-complete-disabled-bg: #f5f5f5 !default;
+$basic-auto-complete-border: #d9d9d9 !default;
+$basic-auto-complete-bg: #ffffff !default;
+$basic-auto-complete-selected: rgba(24, 144, 255, 0.2);
+$basic-auto-complete-marked: #e6f7ff !default;
+.basic-auto-complete {
+    position: relative;
+    &.basic-auto-complete-opened {
+        &.basic-auto-complete-clearable .basic-auto-complete-container.basic-has-value:hover {
+            .basic-clear-wrapper {
+                opacity: 0;
+                pointer-events: none;
+            }
+            .basic-arrow-wrapper {
+                opacity: 1;
+            }
+        }
+        >.basic-auto-complete-container {
+            background: $basic-auto-complete-bg;
+            border-color: $basic-auto-complete-highlight;
+            box-shadow: 0 0 0 2px $basic-auto-complete-selected;
+            .basic-arrow-wrapper {
+                transform: rotate(180deg);
+                opacity: 1;
+                @include rtl {
+                    transform: rotate(-180deg);
+                }
+            }
+        }
+    }
+    &.basic-auto-complete-focused {
+        .basic-auto-complete-container {
+            border-color: $basic-auto-complete-highlight;
+        }
+        .basic-auto-complete-section {
+            border-color: $basic-auto-complete-highlight;
+        }
+    }
+    &.basic-auto-complete-disabled {
+        >.basic-auto-complete-container {
+            background-color: $basic-auto-complete-disabled-bg;
+            &:hover {
+                border: 1px solid $basic-auto-complete-border;
+                cursor: not-allowed;
+            }
+            .basic-value-container {
+                .basic-value {
+                    color: $basic-auto-complete-disabled-text;
+                }
+            }
+        }
+    }
+    .basic-has-value .basic-placeholder {
+        display: none;
+    }
+    &.basic-auto-complete-clearable .basic-auto-complete-container.basic-has-value:hover {
+        .basic-clear-wrapper {
+            opacity: 1;
+        }
+        .basic-arrow-wrapper {
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+    .basic-auto-complete-container {
+        color: $basic-auto-complete-primary-text;
+        background-color: $basic-auto-complete-bg;
+        border-radius: 4px;
+        border: 1px solid $basic-auto-complete-border;
+        min-height: 30px;
+        align-items: center;
+        transition: all 0.3s;
+        box-sizing: border-box;
+        padding-right: 11px;
+        padding-left: 11px;
+        .basic-input {
+            line-height: 22px;
+            input {
+                color: $basic-auto-complete-primary-text;
+            }
+        }
+        .basic-value-container {
+            align-items: center;
+            .basic-value {
+                font-size: 14px;
+                color: $basic-auto-complete-primary-text;
+            }
+            .basic-placeholder {
+                font-size: 14px;
+                color: lighten($basic-auto-complete-primary-text, 60);
+            }
+        }
+    }
+    &.basic-auto-complete-single {
+        &.basic-auto-complete-opened .basic-auto-complete-container .basic-value {
+            opacity: 0.4;
+        }
+        .basic-auto-complete-container {
+            .basic-value-container {
+                .basic-input {
+                    top: 2px;
+                    left: 0;
+                    padding-left: 10px;
+                    padding-right: 50px;
+                    @include rtl {
+                        padding-right: 10px;
+                        padding-left: 50px;
+                    }
+                }
+            }
+        }
+    }
+    &.basic-auto-complete-multiple {
+        &.basic-auto-complete-disabled {
+            >.basic-auto-complete-container .basic-value-container .basic-value {
+                background-color: $basic-auto-complete-disabled-bg;
+                .basic-value-label {
+                    padding: 0 5px;
+                }
+            }
+        }
+        .basic-auto-complete-container {
+            min-height: 32px;
+            padding-left: 5px;
+            @include rtl {
+                padding-right: 5px;
+                padding-left: 11px;
+                .basic-value-container .basic-placeholder {
+                    margin-left: 0;
+                    margin-right: 6px;
+                }
+            }
+            .basic-value-container {
+                padding-bottom: 3px;
+                .basic-value {
+                    margin-top: 3px;
+                    margin-right: 4px;
+                    font-size: 0.9em;
+                    background-color: #fafafa;
+                    border: 1px solid lighten($basic-auto-complete-border, 6);
+                    border-radius: 2px;
+                    height: 24px;
+                    line-height: 22px;
+                    @include rtl {
+                        margin-right: 0;
+                        margin-left: 4px;
+                    }
+                    &.basic-value-disabled {
+                        background-color: $basic-auto-complete-disabled-bg;
+                        color: $basic-auto-complete-disabled-text;
+                        .basic-value-label {
+                            padding-left: 5px;
+                            @include rtl {
+                                padding-left: 0;
+                                padding-right: 5px;
+                            }
+                        }
+                    }
+                    .basic-value-label {
+                        display: inline-block;
+                        padding: 0 5px;
+                    }
+                    .basic-value-icon {
+                        display: inline-block;
+                        padding: 0 5px;
+                    }
+                }
+                .basic-placeholder {
+                    top: 50%;
+                    height: 20px;
+                    margin-top: -10px;
+                    margin-left: 6px;
+                }
+                .basic-input {
+                    height: 24px;
+                    margin-top: 3px;
+                }
+            }
+        }
+    }
+    .basic-clear-wrapper {
+        opacity: 0;
+        color: darken($basic-auto-complete-border, 20);
+        background: rgba(0, 0, 0, 0.25);
+        width: 12px;
+        height: 12px;
+        text-align: center;
+        border-radius: 12px;
+        vertical-align: middle;
+        transition: color .3s ease;
+        position: absolute;
+        right: 13px;
+        @include rtl {
+            left: 13px;
+            right: auto;
+        }
+        &:hover {
+            background: rgba(0, 0, 0, 0.45);
+        }
+        .basic-clear {
+            color: #fff;
+            font-size: 9px;
+            position: absolute;
+            left: 3px;
+            line-height: 12px;
+        }
+    }
+    .basic-spinner-zone {
+        padding: 5px 5px 0 0;
+        @include rtl {
+            padding: 5px 0 0 5px;
+        }
+    }
+    .basic-arrow-wrapper {
+        width: 16px;
+        height: 26px;
+        transition: transform 0.3s;
+        .basic-arrow {
+            border-style: solid;
+            border-width: 0.1rem 0.1rem 0 0;
+            height: 8px;
+            width: 8px;
+            top: -2px;
+            transform: rotate(135deg);
+            color: $basic-auto-complete-disabled-text;
+        }
+    }
+}
+
+.basic-dropdown-panel {
+    background-color: $basic-auto-complete-bg;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    left: 0;
+    &.basic-auto-complete-bottom {
+        top: 100%;
+        border-top-color: lighten($basic-auto-complete-border, 10);
+    }
+    &.basic-auto-complete-top {
+        bottom: 100%;
+        border-bottom-color: lighten($basic-auto-complete-border, 10);
+    }
+    .basic-dropdown-header {
+        border-bottom: 1px solid $basic-auto-complete-border;
+        padding: 5px 7px;
+    }
+    .basic-dropdown-footer {
+        border-top: 1px solid $basic-auto-complete-border;
+        padding: 5px 7px;
+    }
+    .basic-dropdown-panel-items {
+        .basic-optgroup {
+            user-select: none;
+            padding: 4px 12px;
+            color: rgba(0, 0, 0, .45);
+            cursor: pointer;
+            &.basic-option-disabled {
+                cursor: default;
+                color: rgba(0, 0, 0, .45);
+            }
+            &.basic-option-marked {
+                background-color: $basic-auto-complete-marked;
+            }
+            &.basic-option-selected {
+                background-color: #fafafa;
+                font-weight: 600;
+            }
+            &.basic-option-selected.basic-option-marked {
+                background-color: $basic-auto-complete-marked;
+            }
+        }
+        .basic-option {
+            background-color: $basic-auto-complete-bg;
+            color: $basic-auto-complete-primary-text;
+            padding: 5px 12px;
+            transition: background .3s ease;
+            &:first-child {
+                border-top-right-radius: 4px;
+                border-top-left-radius: 4px;
+            }
+            &:last-child {
+                border-bottom-right-radius: 4px;
+                border-bottom-left-radius: 4px;
+            }
+            &.basic-option-selected {
+                background-color: #fafafa;
+                font-weight: 600;
+            }
+            &.basic-option-selected.basic-option-marked {
+                color: $basic-auto-complete-primary-text;
+                background-color: $basic-auto-complete-marked;
+            }
+            &.basic-option-marked {
+                background-color: $basic-auto-complete-marked;
+                color: $basic-auto-complete-primary-text;
+            }
+            &.basic-option-disabled {
+                color: $basic-auto-complete-disabled-text;
+                cursor: not-allowed;
+            }
+            &.basic-option-child {
+                padding-left: 20px;
+                @include rtl {
+                    padding-right: 20px;
+                    padding-left: 0;
+                }
+            }
+            .basic-option-label {
+                font-size: 14px;
+            }
+            .basic-tag-label {
+                font-size: 80%;
+                font-weight: 400;
+                padding-right: 5px;
+                @include rtl {
+                    padding-left: 5px;
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+    @include rtl {
+        direction: rtl;
+        text-align: right;
+    }
+}

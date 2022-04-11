@@ -1,0 +1,68 @@
+import { TerminalContactsModel } from './terminal-contacts-model';
+
+export interface TerminalModel {
+
+    terminalmasterPk: number;
+    terminalId: string;
+    terminalName: string;
+    portmasterFk: number;
+    portCode: string;
+    portName: string;
+    unLocCode: string;
+    smdgCode: string;
+    addressLine1: string;
+    addressLine2: string;
+    addressLine3: string;
+    countryMstFk: number;
+    countryCode: string;
+    countryName: string;
+    stateName: string;
+    cityName: string;
+    postCode: string;
+    phone: string;
+    email: string;
+    quayLength: number;
+    noOfBerths: number;
+    draftAlongside: number;
+    latitude: string;
+    longitude: string;
+    noOfGantries: number;
+    reeferPoints: string;
+    isActive: number;
+    versionNo: number;
+    fax: string;
+    website: string;
+    terminalLogo: string;
+    billingAddressLine1: string;
+    billingAddressLine2: string;
+    billingCity: string;
+    billingCountryMstFk: number;
+    billingCountryCode: string;
+    billingCountryName: string;
+    billingState: string;
+    billingPostalCode: string;
+    billingEmail: string;
+    billingPhone: string;
+    billingFax: string;
+    billingWebsite: string;
+    corporateAddressLine1: string;
+    corporateAddressLine2: string;
+    corporateCity: string;
+    corporateCountryMstFk: number;
+    corporateCountryCode: string;
+    corporateCountryName: string;
+    corporateState: string;
+    corporatePostalCode: string;
+    corporateEmail: string;
+    corporatePhone: string;
+    corporateFax: string;
+    corporateWebsite: string;
+    isBillingSame: boolean;
+    isCorpSame: boolean;
+    createdByFk: number;
+    lastUpdatedByFk: number;
+    lastUpdatedOn: string;
+    createdOn: string;
+    terminalContacts: TerminalContactsModel[];
+
+}

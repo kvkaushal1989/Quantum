@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="slide-wrapper">
+        <button (click)="onPrev()" mat-stroked-button>Prev</button>
+        <button (click)="onNext()" mat-stroked-button>Next</button>
+
+        <carousel-slider [isIn]="current === 0" [left]="isLeftTransition(0)">
+            0
+        </carousel-slider>
+        <carousel-slider [isIn]="current === 1" [left]="isLeftTransition(1)">
+            1
+        </carousel-slider>
+        <carousel-slider [isIn]="current === 2" [left]="isLeftTransition(2)">
+            2
+        </carousel-slider>
+    </div>
+</div>

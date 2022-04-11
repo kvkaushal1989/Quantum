@@ -1,0 +1,54 @@
+
+<p>=======================Label===========================</p>
+<basic-labels [isBold]='true' [isUnderline]='true' [isItalic]='true' [content]="'Quantum'" [color]="'red'"></basic-labels>
+
+
+<p>=================basic-radio-button=================</p>
+<!-- <basic-radio-button  [radioItems]='radioOptions' [(ngModel)]="radioValue"></basic-radio-button> : {{radioValue}} -->
+<!-- <div *ngFor="let v of radioOptions;">
+    <basic-radio-button [valueText]='v.value' [placeholder]='v.label' [nameText]='v.name' [(ngModel)]="radioValue"></basic-radio-button> 
+</div>: {{radioValue}} -->
+<!-- <basic-radio-button  [radioItems]='radioOptions' [(ngModel)]="radioValue"></basic-radio-button> : {{radioValue}} -->
+<div *ngFor="let v of radioOptions2;">
+    <basic-radio-button (change)="testRadioChange($event);" [valueText]='v.value' [placeholder]='v.label' [nameText]='v.name' [(ngModel)]="radioValue2"></basic-radio-button> 
+</div>: {{radioValue2}}
+
+<div *ngFor="let v of radioOptions1;">
+    <basic-radio-button [valueText]='v' [placeholder]='v' [nameText]='v' [(ngModel)]="radioValue1"></basic-radio-button> 
+</div>: {{radioValue1}}
+
+
+<div *ngFor="let v of radioOptions3;">
+    <basic-radio-button [valueText]='v' [placeholder]='v' [nameText]='v' [(ngModel)]="radioValue3"></basic-radio-button> 
+</div>: {{radioValue3}}
+
+<basic-radio-button-group [radioItems]='radioOptions1' [(ngModel)]="radioValue1"></basic-radio-button-group> : {{radioValue1}}
+<basic-radio-button-group [radioItems]='radioOptions3' [(ngModel)]="radioValue3"></basic-radio-button-group> : {{radioValue3}}
+<p>=================basic-Check-Box=================</p>
+<div *ngFor="let v of checkBoxOptions;">
+    <basic-check-box [required]='true' [placeholder]='v.text' [(ngModel)]="v.value" (change)="testRadioChange($event)"></basic-check-box> 
+    : {{v.value}}
+</div>
+<!-- 
+<basic-check-box [radioItems]='radioOptions1' [(inputValue)]="radioValue1"></basic-check-box> : {{radioValue1}} -->
+
+<!-- [disabled]="'true'" -->
+<!-- <p>=================simple-text-box=================</p>
+<simple-text-box [name]="label" [inputType]="'text'" [minLength]="4" [maxLength]="40" [isPrefix]="true" [prefixType]="'true'" [prefixContent]="'true'" [isSuffix]="true" [suffixType]="'true'" [suffixContent]="'true'" [isHint]="true" [hintText]="'text'"
+    [isDisabled]="false" [isRequired]="true" [label]="label" [isFloatLabel]="false" [placeholder]="placeholder" [isNumeric]="true" [(inputValue)]="name"></simple-text-box>
+: {{ name }}
+
+<simple-text-box [name]="label" [inputType]="'password'" [placeholder]="placeholder" [isNumeric]="true" [(inputValue)]="name3"></simple-text-box>
+: {{ name3 }}
+
+<simple-text-box [name]="label" [inputType]="'text'" [maxLength]="0" [isPrefix]="true" [prefixType]="'true'" [prefixContent]="'true'" [isSuffix]="true" [suffixType]="'true'" [suffixContent]="'true'" [isHint]="true" [hintText]="'text'" [isDisabled]="true"
+    [isRequired]="true" [label]="label" [isFloatLabel]="true" [placeholder]="placeholder" [isNumeric]="true" [(inputValue)]="name2"></simple-text-box>
+: {{ name2 }} -->
+
+<!-- <simple-text-box [label]="label" [placeholder]="placeholder" [inputValue]="name1"></simple-text-box> : {{name1}}
+<simple-text-box [label]="label" [placeholder]="placeholder" [inputValue]="name2"></simple-text-box> : {{name2}}
+<simple-text-box [label]="label" [placeholder]="placeholder" [inputValue]="name3"></simple-text-box> : {{name3}} -->
+<p>=================end simple-text-box=================</p>
+
+
+<app-dd-hh-mm-picker></app-dd-hh-mm-picker> 

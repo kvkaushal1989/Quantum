@@ -1,0 +1,45 @@
+<!-- <div>
+    <div class="row" *ngIf="sideMenuContent != null" align="left">  
+        <div class="col-md-4 custom-col-width ml-4 p-0" *ngFor="let item of sideMenuContent.Children" title="{{item.Name}}">
+            <div (click)="navigatePage(item);" class="thumbnail clearfix m-4" id="{{item.Name}}">
+                <div class="thumbnail-img">
+                    <img class="list-group-image" src="{{item.ImageUrl}}" alt="" />
+                </div>
+
+                <div class="caption">
+                    <b class="group inner list-group-item-heading newh4">
+                        {{item.Name}}
+                    </b> 
+                </div>
+            </div>
+        </div>  
+    </div>
+</div> -->
+
+
+<div class="row" *ngIf="sideMenuContent != null">
+  <div class="col-md-3" *ngFor="let item of sideMenuContent.Children" title="{{item.Name}}">
+    <div (click)="navigatePage(item)" class="thumbnail" id="{{item.Name}}">
+      <div class="thumbnail-img">
+        <img class="list-group-image" src="{{item.ImageUrl}}" alt="" />
+      </div>
+      <div class="caption">
+        <b class="group inner list-group-item-heading newh4">
+          {{item.Name}}
+        </b>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container" *ngIf="sideMenuContent != null">
+  <div class="row">
+    <div class="col-3 mgn_btm_30 custom_col3" *ngFor="let item of sideMenuContent.Children" >
+      <div class="dashboard_card" (click)="navigatePage(item)" id="{{item.Name}}">
+        <img [src]="item.ImageUrl"> 
+        <img src="https://img.icons8.com/carbon-copy/2x/building.png">
+        <h3> {{item.Name}}</h3>
+      </div>
+    </div>
+  </div>
+</div> -->

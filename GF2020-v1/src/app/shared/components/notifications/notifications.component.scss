@@ -1,0 +1,23 @@
+
+.custom-alert {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.modal {
+    display: block !important;
+    position: unset !important;
+    margin: auto !important;
+    padding-right: 4px;
+}
+
+.modal-dialog {
+    margin: auto !important;
+    padding-bottom: 4px !important;
+}
+
+.modal-footer {
+   padding: 0px !important;
+}

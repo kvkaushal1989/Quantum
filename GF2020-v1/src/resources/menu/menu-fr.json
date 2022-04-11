@@ -1,0 +1,69 @@
+[{
+    "Id": "GF001",
+    "Name": "Settings",
+    "Icon": "icon-Configuration",
+    "IsExpand": 0,
+    "Children": [{
+            "Name": "Administrator Panel",
+            "Url": "/AdministratorPanel",
+            "Code": "GF20ST001",
+            "Icon": "icon-admin"
+        }, {
+            "Name": "Alert And Notifications",
+            "Url": "/AlertAndNoti",
+            "Code": "GF20ST002",
+            "Icon": "icon-alert-notification"
+        }, {
+            "Name": "Carrier",
+            "Url": "/Carrier",
+            "Code": "GF20ST003",
+            "Icon": "icon-carrier"
+        }, {
+            "Name": "ClauseMaster",
+            "Url": "/ClauseMaster",
+            "Code": "GF20ST001",
+            "Icon": "icon-ClauseMaster"
+        }, {
+            "Name": "Commodity",
+            "Url": "/Commodity",
+            "Code": "GF20ST001",
+            "Icon": "icon-Commodity"
+        }, {
+            "Name": "Country",
+            "Url": "/Country",
+            "Code": "GF20ST001",
+            "Icon": "icon-Country"
+        }, {
+            "Name": "Organization",
+            "Url": "/Organization",
+            "Code": "GF20ST001",
+            "Icon": "icon-Organization"
+        }, {
+            "Name": "ProcessManagement",
+            "Url": "/ProcessManagement",
+            "Code": "GF20ST001",
+            "Icon": "icon-ProcessManagement"
+        }, {
+            "Name": "SequenceNumbering",
+            "Url": "/SequenceNumbering",
+            "Code": "GF20ST001",
+            "Icon": "icon-SequenceNumbering"
+        }, {
+            "Name": "SystemUsers",
+            "Url": "/SystemUsers",
+            "Code": "GF20ST001",
+            "Icon": "icon-SystemUsers"
+        }, {
+            "Name": "Vessel Operations",
+            "Url": "/SystemUsers",
+            "Code": "GF20ST001",
+            "Icon": "icon-SystemUsers",
+            "Children": [{
+                    "Name": "Vessel Operations",
+                    "Url": "/SystemUsers",
+                    "Code": "GF20ST001",
+                    "Icon": "icon-SystemUsers"
+            }]
+        } 
+    ]
+}]

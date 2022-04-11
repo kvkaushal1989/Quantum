@@ -1,0 +1,64 @@
+{
+    "Status": "Success",
+    "StatusCode": "GFE000001",
+    "Data": [
+        {
+            "modmenu_sort_order": 1,
+            "module_id": "Organization",
+            "module_name": "Organization Setup",
+            "menumasterform_pk": 1,
+            "menuform_id": "GF001",
+            "menuform_sort_order": 1,
+            "menuform_name": "Service Planning",
+            "ChildData": [
+                {
+                    "modmenu_sort_order": 1,
+                    "module_id": "Organization",
+                    "module_name": "Organization Setup",
+                    "menumasterform_pk": 2,
+                    "menuform_id": "GF002",
+                    "menuform_sort_order": 2,
+                    "menuform_name": "Voyage Control Sheet"
+                },
+                {
+                    "modmenu_sort_order": 1,
+                    "module_id": "Organization",
+                    "module_name": "Organization Setup",
+                    "menumasterform_pk": 2,
+                    "menuform_id": "GF002",
+                    "menuform_sort_order": 2,
+                    "menuform_name": "Voyage Control Sheet"
+                }
+            ]
+        },
+        {
+            "modmenu_sort_order": 2,
+            "module_id": "Capacity",
+            "module_name": "Capacity Management",
+            "menumasterform_pk": 7,
+            "menuform_id": "GF007",
+            "menuform_sort_order": 2,
+            "menuform_name": "Customer Allocation",
+            "ChildData": [
+                {
+                    "modmenu_sort_order": 2,
+                    "module_id": "Capacity",
+                    "module_name": "Capacity Management",
+                    "menumasterform_pk": 8,
+                    "menuform_id": "GF008",
+                    "menuform_sort_order": 3,
+                    "menuform_name": "Capacity Request"
+                },
+                {
+                    "modmenu_sort_order": 2,
+                    "module_id": "Capacity",
+                    "module_name": "Capacity Management",
+                    "menumasterform_pk": 8,
+                    "menuform_id": "GF008",
+                    "menuform_sort_order": 3,
+                    "menuform_name": "Capacity Request"
+                }
+            ]
+        }
+    ]
+}

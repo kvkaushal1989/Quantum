@@ -1,0 +1,129 @@
+<div *ngIf="data" class="modal " tabindex="-1" role="dialog">
+    <div class="modal-dialog custom-print" role="document" *ngIf="data.type === 'print'">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">B/L Print Format</h3>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="printForm" novalidate autocomplete="off">
+                    <div class="popup-subheading mt-3">B/L Format</div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <basic-radio-button [valueText]="1" placeholder="Plain Stationary" [nameText]="'bl_print_Format'" formControlName="bl_print_Format"></basic-radio-button>
+                        </div>
+                        <div class="col-md-6">
+                            <basic-radio-button [valueText]="2" placeholder="Pre Printed" [nameText]="'bl_print_Format'" formControlName="bl_print_Format"></basic-radio-button>
+                        </div>
+                    </div>
+                    <div class="col-md-12"></div>
+
+                    <div class="popup-subheading mt-3">B/L Status</div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <basic-radio-button [valueText]="'draft'" placeholder="Draft" [nameText]="'bl_status'" formControlName="bl_status"></basic-radio-button>
+                        </div>
+                        <div class="col-md-6">
+                            <basic-radio-button [valueText]="'duplicate'" placeholder="Duplicate" [nameText]="'bl_status'" formControlName="bl_status"></basic-radio-button>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2 draft-status-input">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <basic-check-box placeholder='Original Nr. of Copy' formControlName="is_org_no_of_copy" [disabled]="printForm.value.bl_status === 'draft'"></basic-check-box>
+
+                                    <!-- <input class="bl-status-input-1 org-no-of-copy" type="number" name="org_no_of_copy" formControlName="org_no_of_copy" [disabled]="printForm.value.bl_status == 'draft'" /> -->
+
+                                    <simple-text-box class="tableInput" name="org_no_of_copy" type="number" formControlName="org_no_of_copy" [disabled]="printForm.value.bl_status == 'draft'"></simple-text-box>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <basic-check-box placeholder='Copy Non Negotiable Nr. of Copies' formControlName="is_non_n_no_of_copy" [disabled]="printForm.value.bl_status === 'draft'"></basic-check-box>
+
+                                    <!-- <input class="bl-status-input-2 non-n-no-of-copy" type="number" name="non_n_no_of_copy" formControlName="non_n_no_of_copy" [disabled]="printForm.value.bl_status == 'draft'" /> -->
+
+                                    <simple-text-box class="tableInput" name="non_n_no_of_copy" type="number" formControlName="non_n_no_of_copy" [disabled]="printForm.value.bl_status == 'draft'"></simple-text-box>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="row mt-3">
+                        <div class="col-md-6">
+                            <basic-check-box placeholder='Draft' formControlName="draft" [disabled]="printForm.value.bl_status !== 'draft'"></basic-check-box>
+                        </div>
+                        <div class="col-md-6">
+                            <basic-check-box placeholder='Duplicate' formControlName="duplicate" [disabled]="printForm.value.bl_status === 'draft'"></basic-check-box>
+                        </div>
+                    </div> -->
+
+                    <div class="popup-subheading mt-3">B/L Rated</div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <!-- <basic-check-box placeholder='Rated' formControlName="bl_rated"></basic-check-box> -->
+                            <basic-radio-button [valueText]="1" placeholder="Rated" [nameText]="'bl_rated'" formControlName="bl_rated"></basic-radio-button>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- <basic-check-box placeholder='Non Rated' formControlName="bl_non_rated"></basic-check-box> -->
+
+                            <basic-radio-button [valueText]="2" placeholder="Non Rated" [nameText]="'bl_rated'" formControlName="bl_rated"></basic-radio-button>
+                        </div>
+                    </div>
+
+                    <div class="popup-subheading mt-3">Print Type</div>
+                    <div class="row mt-2">
+                        <div class="col-md-3">
+                            <basic-radio-button [valueText]="1" placeholder="PDF" [nameText]="'bl_dock_type'" formControlName="bl_dock_type"></basic-radio-button>
+                        </div>
+                        <div class="col-md-3">
+                            <basic-radio-button [valueText]="2" placeholder="CSV" [nameText]="'bl_dock_type'" formControlName="bl_dock_type"></basic-radio-button>
+                        </div>
+                        <div class="col-md-3">
+                            <basic-radio-button [valueText]="3" placeholder="XML" [nameText]="'bl_dock_type'" formControlName="bl_dock_type"></basic-radio-button>
+                        </div>
+                        <div class="col-md-3">
+                            <basic-radio-button [valueText]="4" placeholder="EXCEL" [nameText]="'bl_dock_type'" formControlName="bl_dock_type"></basic-radio-button>
+                        </div>
+                    </div>
+                    <div class="custom-last-field"></div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="row pull-right">
+                    <div class="col-md-12">
+                        <p class="confirm-button">
+                            <button class="btn btn3 btn-yes" (click)="savePrint()">Print</button>
+
+                            <button class="btn btn-no" (click)="data.noFn()">Close</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-dialog custom-print" role="document" *ngIf="data.type === 'viewer'">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Report Viewer</h3>
+            </div>
+            <div class="modal-body">
+                <h4>API Not Available</h4>
+            </div>
+            <div class="modal-footer">
+                <div class="row pull-right">
+                    <div class="col-md-12">
+                        <p class="confirm-button">
+                            <button class="btn btn3 btn-yes" (click)="data.siFn()">Ok</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

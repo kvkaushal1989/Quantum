@@ -1,0 +1,23 @@
+<!-- <span style="color:red;" *ngIf="message">{{message}}</span>
+<div class="document-upload">
+    <label for="file-input">
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    </label>
+    <input #file id="file-input" type="file" (change)="preview(file.files)" [accept]="fileTypes" />
+</div>
+<strong>{{fileName}}</strong> -->
+
+<span *ngIf="message">{{message}}</span>
+
+<div class="form-group files color" *ngIf="!uploadedDoc">
+  <input id="file-input" type="file" (change)="handleDocumentUpload($event)">
+</div>
+<p class="uploaded_file_name">{{file_name}}</p>
+
+<div class="image-upload" *ngIf="uploadedDoc">
+  <label for="file-input">
+    <img src="../assets/images/uploader/Edit.png" class="button-circle" />
+  </label>
+  <img [src]="uploadedDoc != '' ? uploadedDoc : imgSource" height="100" width="100" />
+  <input id="file-input" type="file" (change)="handleDocumentUpload($event)" />
+</div>

@@ -1,0 +1,10 @@
+
+<span class="cstm-label" [ngClass]="{'required': required}">{{label}}</span>
+<!-- <p-dropdown #dropDown12="ngModel" [options]="items" [(ngModel)]="selected" required="true" [placeholder]="'Select'" [name]="name" (onChange)="onDropDownChange($event,name)" required></p-dropdown> -->
+<p-dropdown #dropDown12="ngModel" [options]="items" [(ngModel)]="ngModel" [required]="required" [placeholder]="'Select'" [name]="name" (onChange)="onDropDownChange($event,name)" [disabled]="disabled"></p-dropdown>
+
+<div class="error" *ngIf="(dropDown12.errors && (dropDown12.touched || dropDown12.dirty) && !dropDown12.valid) || showErrors">
+    <div *ngIf="required && dropDown12.errors && dropDown12.errors?.required" class="alert alert-danger">
+        {{label}} is required.
+    </div> 
+</div>

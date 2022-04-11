@@ -1,0 +1,34 @@
+export interface ContainerListModel {
+    childbkgcontainerpk: number;
+    bookingcontainerpk: number;
+    bookingmasterpk: number;
+    cust_ref_no: string;
+    carrier_ref_no: string;
+    box_operator: string;
+    container_nr: string;
+    containersize: string;
+    pol: string;
+    terminal: string;
+    pod_terminal: string;
+    commodity_group: string;
+    temperature: string;
+    cargo_class: string;
+    un_nr: string;
+    ncm: string;
+    vgm: number;
+    stowpos: string;
+    status: string;
+    port_transhipment: string;
+    connecting_vessel: string;
+    dep_date: string;
+    dep_time: string;
+    arrival_date: string;
+    arrival_time: string;
+    discharge_date: string;
+    load_date: string;
+    dischargetime: string;
+    loadtime: string;
+    loaded: boolean;
+    discharged: boolean;
+    vgmweight: any;
+}

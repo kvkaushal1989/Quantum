@@ -1,0 +1,206 @@
+{
+  "FetchPortWiseStatusRpt": [
+    {
+      "Status": "Success",
+      "StatusCode": "GFE000001",
+      "Data": [
+        {
+          "country_pk": 11,
+          "country_code2": "AR",
+          "country_name": "Argentina",
+          "portList": [
+            {
+              "portmaster_pk": 5,
+              "port_id": "ARBUE",
+              "port_name": "Buenos Aires",
+              "terminalList": [
+                {
+                  "terminalmaster_pk": 355,
+                  "terminal_id": "BSAS",
+                  "terminal_name": "BACTSSA"
+                },
+                {
+                  "terminalmaster_pk": 362,
+                  "terminal_id": "EXOL",
+                  "terminal_name": "EXOLGAN"
+                },
+                {
+                  "terminalmaster_pk": 361,
+                  "terminal_id": "TERM4",
+                  "terminal_name": "Terminal 4"
+                },
+                {
+                  "terminalmaster_pk": 360,
+                  "terminal_id": "TRP",
+                  "terminal_name": "TRP"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "country_pk": 175,
+          "country_code2": "PY",
+          "country_name": "Paraguay",
+          "portList": [
+            {
+              "portmaster_pk": 49,
+              "port_id": "asd",
+              "port_name": "asd",
+              "terminalList": []
+            },
+            {
+              "portmaster_pk": 50,
+              "port_id": "sda",
+              "port_name": "asdsad",
+              "terminalList": []
+            },
+            {
+              "portmaster_pk": 6,
+              "port_id": "PYASU",
+              "port_name": "Asuncion",
+              "terminalList": [
+                {
+                  "terminalmaster_pk": 303,
+                  "terminal_id": "CAA",
+                  "terminal_name": "CAACUPE MI"
+                },
+                {
+                  "terminalmaster_pk": 330,
+                  "terminal_id": "FNX",
+                  "terminal_name": "Fenix"
+                },
+                {
+                  "terminalmaster_pk": 328,
+                  "terminal_id": "PSJ",
+                  "terminal_name": "Puerto San Jose"
+                },
+                {
+                  "terminalmaster_pk": 312,
+                  "terminal_id": "PSF",
+                  "terminal_name": "Puerto Seguro Fluvial"
+                },
+                {
+                  "terminalmaster_pk": 329,
+                  "terminal_id": "TER",
+                  "terminal_name": "Terport Villeta"
+                }
+              ]
+            },
+            {
+              "portmaster_pk": 7,
+              "port_id": "PYPIL",
+              "port_name": "Pilar",
+              "terminalList": [
+                {
+                  "terminalmaster_pk": 339,
+                  "terminal_id": "CAP",
+                  "terminal_name": "Caacupe-Mi Pilar"
+                }
+              ]
+            },
+            {
+              "portmaster_pk": 51,
+              "port_id": "sad",
+              "port_name": "sad",
+              "terminalList": []
+            },
+            {
+              "portmaster_pk": 53,
+              "port_id": "fdg",
+              "port_name": "sad",
+              "terminalList": []
+            },
+            {
+              "portmaster_pk": 52,
+              "port_id": "dsadas",
+              "port_name": "sff",
+              "terminalList": []
+            },
+            {
+              "portmaster_pk": 48,
+              "port_id": "TER",
+              "port_name": "Terport",
+              "terminalList": [
+                {
+                  "terminalmaster_pk": 364,
+                  "terminal_id": "asda",
+                  "terminal_name": "Terport New"
+                },
+                {
+                  "terminalmaster_pk": 363,
+                  "terminal_id": "rere",
+                  "terminal_name": "Terport Treminal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "country_pk": 241,
+          "country_code2": "UY",
+          "country_name": "Uruguay",
+          "portList": [
+            {
+              "portmaster_pk": 8,
+              "port_id": "UYMVD",
+              "port_name": "Montevideo",
+              "terminalList": [
+                {
+                  "terminalmaster_pk": 101,
+                  "terminal_id": "MON",
+                  "terminal_name": "MONTECON"
+                },
+                {
+                  "terminalmaster_pk": 115,
+                  "terminal_id": "TCP",
+                  "terminal_name": "TCP"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "country_pk": 720,
+          "country_code2": "AX",
+          "country_name": "Åland Islands",
+          "portList": []
+        },
+        {
+          "country_pk": 721,
+          "country_code2": "AL",
+          "country_name": "Albania",
+          "portList": []
+        },
+        {
+          "country_pk": 722,
+          "country_code2": "UM",
+          "country_name": "United States Minor Outlying Islands",
+          "portList": []
+        },
+        {
+          "country_pk": 723,
+          "country_code2": "ET",
+          "country_name": "Ethiopia",
+          "portList": []
+        },
+        {
+          "country_pk": 724,
+          "country_code2": "SV",
+          "country_name": "El Salvador",
+          "portList": []
+        },
+        {
+          "country_pk": 725,
+          "country_code2": "EG",
+          "country_name": "Egypt",
+          "portList": []
+        }
+      ]
+    }
+  ],
+
+  "FetchBookingStatusRptList": [],
+
+  "SaveAPI": []
+}

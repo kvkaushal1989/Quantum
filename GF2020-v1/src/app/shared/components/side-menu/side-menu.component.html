@@ -1,0 +1,75 @@
+<div class="side_menu">
+  <div class="sidebar-logo" (click)="redirect()">
+    <img class="main-logo-gf" src="assets/images/logo.png" width="48px;" height="48px;">
+  </div>
+  <div class="arrow_div">
+    <mat-icon class="arrow_up" *ngIf="topIconVisible" (click)="scrollToElement(target,'top')">arrow_drop_up</mat-icon>
+  </div>
+  <ul class="menu_ul" id="menu_ul" #target (scroll)="onScroll()">
+    <li *ngFor="let item of sideMenuService.menuList;let i = index" id="menu_lists{{i}}" [matTooltip]="item.module_name"
+      [matTooltipPosition]="'left'" (contextmenu)="expandOnlyForFavorites($event, i,item.module_name)">
+      <i class="{{item.module_image}} fa_bag" (click)="expandMenu(i,item.module_name)"
+        [ngClass]="{'fa_active': item.isExpanded}"></i>
+      <!-- <div class="toltip_modal" *ngIf="!item.isExpanded">
+          <div class="innerScroll" id="toltip_modal">
+            <div class="menu_content">
+              {{item.module_name}}
+            </div>
+          </div>
+        </div> -->
+      <div class="modal_div" *ngIf="item.isExpanded" id="modal_div">
+        <!-- <div class="innerScroll">
+            <div class="menu_content" *ngFor="let c of item.childData">
+              <span class="menuIcon" (click)="navigateUrl(i,c.menuform_url)">
+                <i class="fa fa-file-text-o fa-3" aria-hidden="true"></i>
+              </span>
+              <p>{{c.menuform_name}}</p>
+            </div>
+          </div> -->
+        <div class="innerScroll">
+          <div #scroll_container id="scroll_container" class="px-8 overflow-scroll"
+            style="overflow: auto;background: rgb(15, 36, 42);cursor: grab;padding: 20px 0px;">
+            <div class="outer_div">
+              <div class="box_div" *ngFor="let c of item.childData;let j = index" [ngClass]="{'active' : c.active}"
+                aria-hidden="true" mat-button [matMenuTriggerFor]="menu" (click)="showChildList(i,j)"
+                (menuClosed)="allowCloseOnClickOut()">
+                <!-- (click)="navigateUrl(i,c.menuform_url)" -->
+                <span class="menuIcon">
+                  <i class="fa fa-file-text-o fa-3 hover_fa">
+                  </i>
+                  <p class="menu_pp">{{c.menuform_name}}</p>
+                </span>
+                <div class="custom_mat_menu">
+                  <mat-menu #menu="matMenu" xPosition="after" yPosition="above" [overlapTrigger]="true"
+                    backdropClass="custom_mat">
+                    <!-- <h3 class="mat_p">{{c.menuform_name}}</h3> -->
+                    <button mat-menu-item *ngFor="let e of c.childData1;"
+                      (click)="navigateUrl(i, e.menuform_url,e)">{{e.menuform_name}}</button>
+                  </mat-menu>
+                </div>
+              </div>
+              <div (click)="scrollRight()" class="chevron-left" *ngIf="showLeftIcon && !atRightReached">
+                <img src="./assets/images/Left-Arrow.png">
+              </div>
+
+              <div (click)="scrollLeft()" class="chevron-right" *ngIf="hasHorizontalScrollbar && !atLeftReached">
+                <img src="./assets/images/Right-Arrow.png">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <div class="arrow_div">
+    <mat-icon (click)="scrollToElement(target,'bottom')"
+      *ngIf="(bottomIconVisible && disableScrollDown) && sideMenuService.menuList.length > 10">arrow_drop_down
+    </mat-icon>
+  </div>
+
+  <img class="el_img" (click)="redirect()" src="assets/images/connect-logo.png" width="24px">
+</div>
+
+<!-- <button (click)="closeMenuItem()" class="close_btn" id="closeBtn"><i class="fa fa-times"></i></button> -->
+<div class="modal_div_new" id="modalNew" (click)='closeMenuItem();'></div>

@@ -1,0 +1,48 @@
+<div class="basic-radio">
+    
+    <!-- <span class="customRadio">
+    <input type="radio" name="optradio" value ="objTerminalContacts[i].isKeycontact" (click)="radioStar($event, i)" style="margin-left: 15px;">
+    <i></i>
+  </span> -->
+
+  <!-- <label class="customRadio">
+      <input
+        #BasicRadioInput="ngModel"
+        id="{{ identifier }}-{{ valueText.replace(' ', '-') }}-{{ i }}"
+        class="radio-custom"
+        type="radio"
+        value="{{valueText}}"
+        [(ngModel)]="inputValue"
+        (ngModelChange)="inputValueChange.emit(inputValue)" 
+        [disabled]="disabled"
+        [disabled]="disabled"
+        [required]="required"
+
+        (change)="_handleChange($event)"    
+        (focus)="_handleFocus($event)"  
+        (blur)="_handleBlur($event)"  
+    />
+    <i></i>
+    </label>
+    <label class="radio-custom-label" for="{{ identifier }}-{{ valueText.replace(' ', '-') }}-{{ i }}">
+        {{ placeholder }} 
+    </label> -->
+
+    <label class="customRadio">
+        <input
+            name="{{nameText}}"
+            #BasicRadioInput="ngModel"
+            id= "{{ identifier }}-{{ nameText.replace(' ', '-') }}-{{ i }}"
+            class="radio-custom"
+            type="radio"
+            [value]="valueText"
+            [(ngModel)]="value"  
+            [disabled]="disabled"
+            [required]="required" 
+        />
+        <i></i>
+    </label>
+    <label class="radio-custom-label" for="{{ identifier }}-{{ nameText.replace(' ', '-') }}-{{ i }}">
+        {{ placeholder }} 
+    </label>
+</div> 

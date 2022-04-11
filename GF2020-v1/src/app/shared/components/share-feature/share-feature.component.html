@@ -1,0 +1,73 @@
+<!-- 
+<div *ngIf="data" class="modal " tabindex="-1" role="dialog">
+  <div class="modal-dialog custom-share" role="document" *ngIf="data.type === 'share'">
+      <div class="modal-content">
+          <div class="modal-body">
+            <form class="row" [formGroup]="shareForm" novalidate autocomplete="off">
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <simple-text-box class="col-md-12 pl-0 mb-2" type="text" name="to" label="To" placeholder="Email" required="true" formControlName="to"></simple-text-box>
+              </div>
+
+              <div class="col-sm-12 col-md-12 col-lg-12">
+                <simple-text-box class="col-md-12 pl-0 mb-2" type="text" name="bcc" label="Bcc" placeholder="Email" formControlName="bcc"></simple-text-box>
+              </div>
+
+              <div class="col-sm-12 col-md-12 col-lg-12 ui-float-label mail-body-container">  
+                <textarea class="mail-body-input" id="float-input" rows="5" cols="30" formControlName="body" pInputTextarea></textarea>              
+                <label class="body-label" for="float-input">Body</label>
+              </div>
+              
+              <div class="custom-last-field"></div>
+            </form>
+          </div>
+          <div class="modal-footer">
+              <div class="row pull-right">
+                  <div class="col-md-12">
+                      <p class="confirm-button">
+                        <button class="btn btn-no" (click)="data.noFn()">Cancel</button>
+                        
+                        <button class="btn btn3 btn-yes" (click)="send()">Send</button>
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div> -->
+
+<div *ngIf="data"  [ngClass]="{ 'new_share_model' :shareForm.value.subject === 'Terminal Operation Report' || shareForm.value.subject === 'SettlementReport'}" class="share_modal">
+    <div class="share_modal_content">
+        <h3>Share By Email <img class="close_img" src="assets/images/Close.svg" (click)="data.noFn()"></h3>
+        <div class="inner_content">
+            <form class="row" [formGroup]="shareForm" autocomplete="off">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <simple-text-box class="col-md-12 pl-0 mb-2" type="text" name="to" label="To"  placeholder="Recipients email" required="true" formControlName="to"></simple-text-box>
+                    <!-- <small *ngIf="toEmail.errors?.pattern" class="text-danger" style="float:left;">Please provide a valid email address</small> -->
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <simple-text-box class="col-md-12 pl-0 mb-2" type="text" name="cc" label="Cc" placeholder="Email" formControlName="cc"></simple-text-box>
+                    <!-- <small *ngIf="ccEmail.errors?.pattern" class="text-danger" style="float:left;">Please provide a valid email address</small> -->
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-12 ui-float-label mail-body-container">
+                    <p>Body</p>
+                    <!-- <textarea class="mail-body-input" id="float-input" rows="5" cols="30" formControlName="body" pInputTextarea></textarea> -->
+                    <p-editor formControlName="body" [style]="{'height':'160px'}" maxlength='500'></p-editor>
+                    <small *ngIf="shareForm.controls['body'].touched && shareForm.controls['body'].hasError('maxlength')" class="alert alert-danger" style="float:left;">Maximum 500 characters allowed.</small>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-12 ui-float-label mail-body-container custom_s12">
+                    <div class="fileUpload" style="width: 225px;" disabled>
+                        <input *ngIf="!shareForm.value.attachmentPath" type="file" class="upload" formControlName="attachmentfile" multiple> {{ shareForm.value.attachmentPath }}
+                        <span><i class="fa fa-paperclip attach" style="pointer-events: auto! important;
+                          cursor: not-allowed! important;"></i></span>
+                    </div>
+
+                    <button class="btn btn3 btn-yes" (click)="send()" [disabled]="!shareForm.valid || shareForm.controls['body'].hasError('maxlength') || isDisabled">Send</button>
+                </div>
+
+                <div class="custom-last-field"></div>
+            </form>
+        </div>
+    </div>
+</div>

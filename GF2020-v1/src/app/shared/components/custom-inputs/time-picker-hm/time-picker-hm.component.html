@@ -1,0 +1,6 @@
+
+<mat-form-field class="example-full-width timerpicker">
+    <mat-label>{{label}}</mat-label>
+    <label>{{prefix}}</label><input matInput  type="time" [name]="name" step="0" disabled="{{disabled ? 'true' : 'false'}}" [placeholder]="placeholder" [(ngModel)]="defaultValue" #textInput="ngModel" (input)="onUserInput(name,defaultValue)"/>
+</mat-form-field>
+       

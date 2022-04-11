@@ -1,0 +1,43 @@
+<!-- <basic-auto-complete label="Select" placeholder="Select" [(ngModel)]="selectedCars">
+    <basic-option *ngFor="let car of cars" [value]="car.id" [disabled]="car.disabled"> 
+        <span class="code">{{car.id}}</span>
+        <span class="title">{{car.name}}</span> 
+    </basic-option>
+    <basic-option [value]="'custom'">Custom</basic-option>
+</basic-auto-complete> -->
+
+
+<!-- <basic-auto-complete label="Select" placeholder="Select" [items]="cars" [(ngModel)]="selectedCars" bindLabel="id" bindValue="id">
+    <ng-template basic-option-tmp let-item="item" let-search="searchTerm"> 
+        <div [ngOptionHighlight]="search">{{ item.name }}</div>
+    </ng-template>
+</basic-auto-complete> -->
+
+<!-- <br/>Selected car ID: {{selectedCars | json}} -->
+
+<!-- 
+<ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+    <div [ngOptionHighlight]="search">{{ item.label }}</div>
+  </ng-template> -->
+
+<basic-auto-complete [items]="countryList">
+    <ng-template basic-option-tmp let-item="item" let-search="searchTerm"> 
+        <div [basicOptionHighlight]="search">{{ item.name }}</div>
+    </ng-template>
+</basic-auto-complete>
+
+<br/>Selected: <pre>{{countryDefaults | json}}</pre>
+
+<!-- <b>======================================================================================================================================</b>
+<basic-select [settings]="sdropdownSettings" [(ngModel)]="countryDefaults" [data]="countryList" (change)="onChangeCountry($event)"></basic-select>
+
+
+<b>======================================================================================================================================</b>
+<basic-select [settings]="sdropdownSettings" [(ngModel)]="countryDefaults1" [data]="countryList1"></basic-select>
+
+
+<b>=======================================================cars 1===============================================================================</b>
+<basic-select [settings]="dropdownSettings" [(ngModel)]="selectedCars1" [data]="cars1"></basic-select>
+
+<br/>Selected car ID: {{selectedCars1 | json}}
+<br/>Selected car ID: {{cars1 | json}} -->

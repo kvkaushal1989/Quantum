@@ -1,0 +1,64 @@
+<p-table #dte [columns]="columnsConfig" [value]="data" dataKey="vin" sortMode="multiple"
+    [resizableColumns]="isResizeable" [scrollable]="isSortable" selectionMode="single" [(selection)]="selected"
+    [paginator]="isPaginator" [rows]="numberOfRecordsPerPage" [scrollHeight]="tableScrollHeight"
+  >
+    <ng-template pTemplate="caption">
+        <div style="text-align: right">
+            <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+            <input type="text" pInputText size="50" placeholder="Global Filter"
+                (input)="dte.filterGlobal($event.target.value, 'contains')" style="width:auto">
+        </div>
+    </ng-template>
+    <ng-template pTemplate="colgroup" let-columns>
+        <colgroup>
+            <col *ngFor="let col of columns" [style.width]="col.width" [style.textAlign]="col.textAlign">
+        </colgroup>
+    </ng-template>
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th [style.width]="'2em'"></th>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field" [style.width]="col.width" pResizableColumn>
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
+        <tr>
+            <td [style.width]="'2em'">
+                <a href="#" [pRowToggler]="rowData">
+                    <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
+                </a>
+            </td>
+            <td *ngFor="let col of columns" [style.width]="col.width">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+        <tr>
+            <td [attr.colspan]="columns.length + 1" [style.width]="'2em'">
+
+                <div class="ui-g ui-fluid">
+                    <p-table [columns]="innerTableConfig" [value]="innerTableData" sortMode="multiple">
+                        <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns" [style.width]="col.width"  [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+            <td *ngFor="let col of columns">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+</div>
+</td>
+</tr>
+</ng-template>
+</p-table>

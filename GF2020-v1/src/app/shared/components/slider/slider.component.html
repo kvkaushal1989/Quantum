@@ -1,0 +1,10 @@
+<section class="example-section">
+    <mat-slide-toggle [name]="name"
+        class="example-margin"
+        [color]="color"
+        [checked]="checked"
+        [(ngModel)]="checked"
+        [disabled]="disabled" (input)="onSlideChange(name)">
+            {{label}}
+    </mat-slide-toggle>
+  </section>

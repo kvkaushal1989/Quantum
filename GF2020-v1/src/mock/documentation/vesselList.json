@@ -1,0 +1,36 @@
+{
+  "Status": "Success",
+  "StatusCode": "GFS000001",
+  "Data": [
+    {
+      "serviceid": "AME",
+      "voyage": "AME 2001 N",
+      "bkgcnt": 24,
+      "port": "motevideo",
+      "terdtls": [
+        {
+          "tername": "montevideo",
+          "eta": "2020-07-17T12:44:05.2878242+05:30",
+          "etd": "2020-07-18T12:44:05.2878242+05:30",
+          "bkgcnt": 5,
+          "RBL": 25,
+          "WIP": 5,
+          "draft": 10,
+          "micdta": 5,
+          "print": 5
+        },
+        {
+          "tername": "montevideo",
+          "eta": "2020-07-18T12:44:05.2878242+05:30",
+          "etd": "2020-07-19T12:44:05.2878242+05:30",
+          "bkgcnt": 19,
+          "RBL": 20,
+          "WIP": 5,
+          "draft": 10,
+          "micdta": 5,
+          "print": 5
+        }
+      ]
+    }
+  ]
+}

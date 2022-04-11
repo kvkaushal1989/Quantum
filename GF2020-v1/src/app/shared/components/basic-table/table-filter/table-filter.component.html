@@ -1,0 +1,37 @@
+<div class="table-filter">
+    <span class="listing-tag" *ngIf="isListingVisible">Listing {{ pageSize > 0 ? 1 : 0 }} -
+        <!-- {{pageSize > totalRecord ? totalRecord : pageSize}} of {{totalRecord}}  -->
+        {{ pageSize }} of {{totalRecord}}
+    </span>
+    <span class="float-right">
+        <div class="container-2" *ngIf="!isSearchFlag">
+            <span class="icon">
+                <img src="assets/images/search.png">
+                <!-- <i class="icon-search"></i> -->
+            </span>
+            <!-- <input id="search" type="search"  [(ngModel)]="filterInput" pInputText size="50" placeholder="Search here"
+                (input)="filterCountriesOnInput()" data-toggle="tooltip" data-placement="top" title="Search Text"> -->
+                <input id="search" type="search" [(ngModel)]="query" (input)="filterCountriesOnInput()" pInputText size="50" placeholder="Search here" 
+                data-toggle="tooltip" data-placement="top" title="Search Text">
+        </div>
+        <span class="filter-container" *ngIf="isFilterOn" (click)="filterOnClick();">
+            <img class="ml-2" src="assets/images/Filter.png">
+            <!-- <span class="icon-Filter"></span> -->
+        </span>
+        <app-switch id="switch-1" *ngIf="isSwichVisiable" [(ngModel)]="isActive" data-toggle="tooltip"
+            data-placement="top" title="Toggle" (change)="switchChangeHandler($event)"></app-switch>
+
+        <span class="setting-container" *ngIf="isSettingIconVisiable" (click)="settingsHandler();">
+            <img class="ml-2" src="assets/images/Gear.png">
+
+            <!-- <i class="settings icon-Group-1409"></i> -->
+        </span>
+
+        <span class="setting-container" *ngIf="isAddIconVisible" (click)="addHandler();">
+            <img class="ml-2" src="assets/images/Plus-icon.png">  
+
+            <!-- <i class="settings icon-Group-1409"></i> -->
+        </span>
+        
+    </span>
+</div>

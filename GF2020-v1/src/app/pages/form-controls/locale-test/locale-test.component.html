@@ -1,0 +1,27 @@
+<p>===============================Date==================================</p>
+<p>{{ fromDate | dateFormat }}</p>
+
+
+<br/>
+<p>===============================Number==================================</p>
+
+<div>
+    <app-number-input-box type="text" label="number1" [(ngModel)]='number1'></app-number-input-box>
+    {{ number1 }}
+</div>
+<div>
+    <app-number-input-box type="text" label="number2" [(ngModel)]='number2'></app-number-input-box>
+    {{ number2 }}
+</div>
+
+<p>{{ 1323123 | numberFormatter}}</p>
+<p>{{ number1 | numberFormatter:'es-py' }}</p>
+<p>{{ number2 | numberFormatter:'ar-EG' }}</p>
+<!-- <p>{{ "42000200.530" | numberFormatter:'1.1-3':'hu' }}</p>
+<p>{{ "43000200.530" | numberFormatter:'1.3-2':'en' }}</p>
+<p>{{ "44000200.530" | numberFormatter:'1.1-2':'de' }}</p>
+<p>{{ "45000200.530" | numberFormatter:'':'ar' }}</p> -->
+
+
+
+

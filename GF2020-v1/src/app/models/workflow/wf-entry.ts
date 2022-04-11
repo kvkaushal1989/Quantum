@@ -1,0 +1,52 @@
+export interface WfEntryModel {
+    workflow_rules_trn_pk: number;
+    workflow_id: string;
+    document_mst_fk?: number;
+    document_id: string;
+    document_name: string;
+    is_active: number;
+    to_loc_mst_fk?: number;
+    location_id: string;
+    location_name: string;
+    department_mst_fk?: number;
+    department_id: string;
+    department_name: string;
+    designation_mst_fk?: number;
+    designation_id: string;
+    designation_name: string;
+    user_mst_fk?: number;
+    username: string;
+    copy1_mst_fk?: number;
+    copy1_id: string;
+    copy2_mst_fk?: number;
+    copy2_id: string;
+    copy3_mst_fk?: number;
+    copy3_id: string;
+    valid_from: string;
+    valid_to: string;
+    actiondays: string;
+    reminder_mode: string;
+    reminderdays: string;
+    reminderfreq: string;
+    escalate_mode: string;
+    escalate_user_fk?: number;
+    escalteid: string;
+    targetdays: string;
+    created_by_fk: number;
+    created_on: string;
+    last_updated_by_fk: number;
+    last_updated_on: string;
+    version_no: number;
+    reminder_alert: number;
+    reminder_email: number;
+    notification_alert: number;
+    notification_email: number;
+    locationDtls: wfLocation[];
+}
+export interface wfLocation {
+    workflow_loc_trn_pk: number;
+    from_loc_mst_fk: number;
+    location_id: string;
+    location_name: string;
+    is_active: number;
+}

@@ -1,0 +1,159 @@
+.cardHeader {
+  font-size: 14px !important;
+  background: #D7DEE0;
+  padding: 13px !important;
+}
+
+.menuRight {
+  position: absolute;
+  right: 5px;
+  top: 10px;
+}
+
+.btnCustom {
+  width: 83px;
+  height: 83px;
+  border-radius: 50%;
+  background-color: #E7F2F6;
+  color: #00B8F1;
+  font-size: 34px;
+  font-weight: 600;
+  padding: 15px;
+  margin: 0px 25px;
+  min-height: unset;
+}
+
+.btnCustom.small {
+  width: 36px !important;
+  height: 36px !important;
+  font-size: 14px !important;
+  padding: 5px !important;
+}
+
+.btnCustom.grey {
+  background-color: #F5F6F7 !important;
+  color: #567C87 !important;
+  height: 32px;
+  width: 32px;
+  font-size: 14px !important;
+  padding: 5px !important;
+}
+
+.detailsCard {
+  background: #e8f6fa;
+  margin-top: -15px;
+  //  z-index: -1;
+  -webkit-animation-name: slideInDown;
+  animation-name: slideInDown;
+}
+
+span.heading {
+  font-size: 12px;
+}
+
+::ng-deep {
+  .mat-expansion-panel-body {
+    padding: 0px !important;
+  }
+
+  .mat-expansion-panel-header {
+    height: unset !important;
+    padding: 10px 16px 0px !important;
+  }
+}
+
+.customTable {
+  td {
+    border-bottom: 1px solid #D7DEE0;
+    padding: 8px 16px;
+    letter-spacing: 0px;
+    color: #0C323D;
+    font-size: 14px;
+  }
+
+  th {
+    background-color: #D7DEE0;
+    padding: 8px 16px;
+    letter-spacing: 0.36px;
+    color: #0C323D;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
+
+.fileUpload {
+  .modal-dialog {
+    top: 10%;
+  }
+}
+
+.IncomeSummary {
+  .modal-dialog {
+    max-width: 77vw;
+    border-radius: 0px;
+    top: 10px;
+    box-shadow: unset !important;
+  }
+
+  .modal-header {
+    border-radius: 0px !important;
+    box-shadow: 0px 4px 8px #00000029;
+  }
+
+  .modal-content {
+    background-color: transparent !important;
+    border: none !important;
+    max-height: 95vh;
+    overflow: auto;
+  }
+
+  .fixedHeader {
+    position: fixed;
+    top: 10px;
+    width: calc(75vw - 4px);
+    z-index: 99;
+    border-radius: 0px;
+  }
+
+  .mt-85 {
+    margin-top: 85px;
+  }
+
+  span.close-btn {
+    position: absolute;
+    top: 0px;
+    right: -24px;
+    color: white;
+  }
+
+  .bg-heading {
+    background: #E7F2F6;
+    padding: 8px 16px;
+    margin: -16px -16px 0px;
+  }
+
+  .bg-footer {
+    background: #F5F6F7;
+    padding: 16px;
+    margin: 0px -16px -16px;
+  }
+}
+
+p.portName {
+  &::after {
+    border-top: 2px solid #D7DEE0;
+    content: "";
+    margin: 0 auto;
+    position: absolute;
+    top: 38px;
+    right: 0;
+    width: 30%;
+    z-index: 1;
+    max-width: 100%;
+  }
+}
+
+.back-icon {
+  cursor: pointer;
+}

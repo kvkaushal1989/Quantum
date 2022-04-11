@@ -1,0 +1,22 @@
+{
+  "Status": "Success",
+  "StatusCode": "GFS000001",
+  "Data": [
+    {
+      "customerimage": "",
+      "customername": "MSC",
+      "bkgnr": "BKG2020N",
+      "SBL": "SBL20202N",
+      "voyage": "AME2020N",
+      "Port": "Montevideo",
+      "Terminal": "Montecon",
+      "blcosedt": "2020-07-17T12:44:05.2878242+05:30",
+      "uploaded": 25,
+      "WIP": 5,
+      "draft": 10,
+      "loaded": 10,
+      "micdta": 5,
+      "print": 5
+    }
+  ]
+}

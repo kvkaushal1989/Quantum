@@ -1,0 +1,15 @@
+
+  <mat-form-field [floatLabel]="'always'" >
+    <span *ngIf="isPrefix && prefixType === 'text'" matPrefix>{{prefixContent}} &nbsp;</span>
+    <mat-icon *ngIf="isPrefix && prefixType !== 'text'" matPrefix>{{prefixContent}}</mat-icon>
+    <mat-label>{{placeholder}}</mat-label>
+    <mat-select [disabled] = "isDisabled" [(ngModel)]="selectedItem" [required]="isRequired" name="basicSelect" ngDefaultControl>
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let item of items" [value]="item.value">
+            {{item.viewValue}}
+        </mat-option>
+    </mat-select>
+    <span *ngIf="isSuffix && suffixType === 'text'" matSuffix>{{suffixContent}} &nbsp;</span>
+    <mat-icon *ngIf="isSuffix && suffixType !== 'text'" matSuffix>{{suffixContent}}</mat-icon>
+    <mat-hint *ngIf="isHint">{{hintText}}</mat-hint>
+</mat-form-field>

@@ -1,0 +1,90 @@
+<div *ngIf="settings.singleSelection">
+  <basic-auto-complete [items]="data" [label]="placeholder" [placeholder]="settings.placeholder" [(ngModel)]="_ngModel" (change)="onSelectionChange([$event]);" [multiple]="!settings.singleSelection" [searchable]="settings.enableSearchFilter" [editableSearchTerm]="settings.enableSearchFilter" [clearable]="false" [required]="required">
+    <ng-template basic-label-tmp let-item="item">
+      <div class="single-selection-value col-md-12 p-0">       
+        <div class="row">       
+          <div class="col-md-8 select-contain">
+             {{item.text}} 
+          </div>
+          <div class="selected-tagged-btn col-md-4" *ngIf="settings.taggedButtonDisplay && item.taggedButton">
+            {{ item.taggedButton }} 
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template basic-option-tmp let-item="item" let-item$="item$" let-index="index">
+      <div class="row" (click)="onSelectFn(item$);">
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-1 small-col-width">
+              <div class="selection-row">
+                <input *ngIf="settings.isCheckBoxVisible" class="mt-1" id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/>
+              </div>
+            </div>
+
+            <div class="col-md-10 pl-1">
+              <div class="">
+                <label class="bold-contain">{{ item.text }}</label>
+              </div>
+              <div class="selection-row" *ngIf="settings.isTagDisplay || settings.taggedButtonDisplay">
+                <span class="selection-col pull-left" *ngIf="settings.isTagDisplay">
+                  <small class="tagged-text">{{ item.taggedLabel }}</small>
+                </span>
+              </div>
+            </div>
+          </div>  
+        </div>
+
+        <div class="col-md-3 selection-col pull-right" *ngIf="settings.taggedButtonDisplay && item.taggedButton">
+          <span class="tagged-btn"> {{ item.taggedButton }} </span>
+        </div>
+      </div>
+    </ng-template>
+  </basic-auto-complete>
+</div>
+
+<div *ngIf="!settings.singleSelection">
+  <basic-auto-complete [items]="data" [label]="placeholder" [placeholder]="settings.placeholder" [(ngModel)]="_ngModel" (change)="onSelectionChange($event);" (remove)="onRemove($event);" [multiple]="!settings.singleSelection" [searchable]="settings.enableSearchFilter" [editableSearchTerm]="settings.enableSearchFilter" bindLabel="text" bindValue="id">
+    <ng-template basic-multi-label-tmp let-items="items" let-clear="clear">
+      <div class="c-token" *ngFor="let item of items | slice:0:settings.badgeShowLimit">
+        <span class="c-label">{{item.id}}</span><span> {{ item.text }} </span>
+        <span class="selected-tagged-btn" *ngIf="settings.taggedButtonDisplay && item.taggedButton">
+          {{ item.taggedButton }} </span>
+      </div>
+      <div class="basic-value" *ngIf="items.length > settings.badgeShowLimit">
+        <span class="basic-value-label">{{items.length - settings.badgeShowLimit}} {{ 'more' }}</span>
+      </div>
+    </ng-template>
+
+    <ng-template basic-option-tmp let-item="item" let-item$="item$" let-index="index">
+      <div class="row" (click)="onSelectFn(item$);">
+        <div class="col-md-9">
+          <div class="selection-row row">
+          
+            <div class="col-md-1  small-col-width">            
+              <input *ngIf="settings.isCheckBoxVisible" class="mt-1" id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/>
+            </div>
+
+            <div class="col-md-10 pl-1">
+              <div class="">
+                <label class="bold-contain">{{ item.text }}</label>
+              </div>
+
+              <div class="selection-row" *ngIf="settings.isTagDisplay || settings.taggedButtonDisplay">
+                <span class="selection-col pull-left" *ngIf="settings.isTagDisplay">
+                  <small class="tagged-text">{{ item.taggedLabel }}</small>
+                </span>
+              </div>
+            </div>
+          </div>    
+        </div>
+
+        <div class="col-md-3 selection-col pull-right" *ngIf="settings.taggedButtonDisplay && item.taggedButton">
+          <span class="tagged-btn flex-center"> {{ item.taggedButton }} </span>
+        </div>
+      </div>
+    </ng-template>
+  </basic-auto-complete>
+</div>
+
+<!-- {{ data | json}} -->

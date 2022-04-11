@@ -1,0 +1,215 @@
+mask-input-box, 
+mask-input-textarea {
+  display: inline-block;
+  position: relative;
+  font-family: "Exo 2", sans-serif !important;
+  line-height: normal;
+  text-align: left;
+}
+[dir="rtl"] mask-input-box,
+[dir="rtl"] mask-input-textarea {
+  text-align: right;
+}
+
+.mask-input-box-wrapper {
+  margin: 0px 0;
+}
+
+input.mask-input-box-element:read-only {
+  background: #f5f6f7;
+}
+.mask-input-box-table {
+  display: inline-table;
+  flex-flow: column;
+  vertical-align: bottom;
+  width: 100%;
+}
+.mask-input-box-table > * {
+  display: table-cell;
+}
+
+.mask-input-box-infix {
+  position: relative;
+}
+
+.mask-input-box-suffix {
+  position: absolute;
+  right: 10px;
+  top: 25px;
+  color: #a6b8bd;
+  font-family: "Exo 2", sans-serif !important;
+  font-size: 14px;
+}
+.prefix-content {
+  position: absolute;
+  left: 16px;
+  z-index: 2;
+  color: #567c87;
+  font-family: "Exo 2", sans-serif !important;
+  font-size: 16px;
+  top: 23px;
+}
+::ng-deep .mask-input-box-element {
+  font-size: 16px;
+  font-family: "Exo 2", sans-serif !important;
+  text-align: left;
+  line-height: 19px;
+  letter-spacing: 0px;
+  color: #567c87 !important;
+  opacity: 1;
+  padding: 14px 0px 0px 16px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #dedfe0;
+  border-radius: 4px;
+  height: 56px;
+  color: currentColor;
+  outline: none;
+  width: 100%;
+}
+.mask-input-box-element.mask-input-end {
+  text-align: right;
+}
+[dir="rtl"] .mask-input-box-element.mask-input-end {
+  text-align: left;
+}
+.mask-input-box-element:-moz-ui-invalid {
+  box-shadow: none;
+}
+.mask-input-box-element:-webkit-autofill
+  + .mask-input-box-placeholder.mask-input-float {
+  display: block;
+
+  padding-bottom: 5px;
+  transform: translateY(-100%) scale(0.75);
+  width: 133.33333%;
+}
+
+.mask-input-box-placeholder {
+  position: absolute;
+  left: 16px;
+  top: 7px;
+  line-height: 16px;
+  text-align: left;
+  letter-spacing: 0px;
+  color: #0c323d;
+  font-weight: 600;
+  font-size: 13px;
+  font-family: "Exo 2", sans-serif !important;
+  pointer-events: none;
+  z-index: 1;
+  width: 100%;
+  display: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  transform: translateY(0);
+  transform-origin: bottom left;
+  transition: transform 400ms cubic-bezier(0.25, 0.8, 0.25, 1),
+    scale 400ms cubic-bezier(0.25, 0.8, 0.25, 1),
+    color 400ms cubic-bezier(0.25, 0.8, 0.25, 1),
+    width 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.mask-input-box-placeholder.mask-input-box-empty {
+  display: block;
+  cursor: text;
+}
+.mask-input-box-placeholder.mask-input-box-float:not(.mask-input-empty),
+.mask-input-box-placeholder.mask-input-box-float.mask-input-box-focused {
+  display: block;
+  padding-bottom: 5px; 
+  width: 133.33333%;
+}
+[dir="rtl"] .mask-input-box-placeholder {
+  transform-origin: bottom right;
+}
+
+.mask-input-box-underline {
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  margin-top: 4px; 
+}
+.mask-input-box-underline.mask-input-box-disabled {
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.26) 0%,
+    rgba(0, 0, 0, 0.26) 33%,
+    transparent 0%
+  );
+  background-size: 4px 1px;
+  background-repeat: repeat-x;
+  border-top: 0;
+  background-position: 0;
+}
+.mask-input-box-underline .mask-input-box-ripple {
+  position: absolute;
+  height: 2px;
+  z-index: 1;
+  top: -1px;
+  width: 100%;
+  transform-origin: top;
+  opacity: 0;
+  transform: scaleY(0);
+  transition: transform 400ms cubic-bezier(0.25, 0.8, 0.25, 1),
+    opacity 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.mask-input-box-underline .mask-input-box-ripple.mask-input-box-focused {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.mask-input-hint {
+  display: block;
+  position: absolute;
+  font-size: 75%;
+  bottom: -0.5em;
+}
+.mask-input-hint.mask-input-right {
+  right: 0;
+}
+[dir="rtl"] .mask-input-hint {
+  right: 0;
+  left: auto;
+}
+[dir="rtl"] .mask-input-hint.mask-input-right {
+  right: auto;
+  left: 0;
+}
+
+::ng-deep .alert-danger {
+  color: #e5456d !important;
+  background-color: transparent !important;
+  border-color: #f2f4f5 !important;
+  text-align: left;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0px;
+  opacity: 1;
+}
+
+::ng-deep .alert {
+  padding: 0px !important;
+  margin: 0px !important;
+  border: none;
+}
+
+::ng-deep .mask-input-box-element:focus {
+  border: 2px solid #00b8f1 !important;
+  border-radius: 4px !important;
+}
+
+
+
+label.required::after {
+  content: "*";
+  color: #f90c03;
+}
+
+.label-prefix-visible .prefix-content {
+  width: max-content;
+}
+
+.input-prefix-visible {
+  padding-left: 55px;
+}

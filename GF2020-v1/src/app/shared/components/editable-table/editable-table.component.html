@@ -1,0 +1,38 @@
+<table>
+    <tr class="text-box-col" *ngFor="let data of items;let i = index;">
+        <div class="card mb-2">
+            <div class="card-body px-2 py-3">
+                <div class="row col-12 m-0 p-0">
+
+                    <td class="" *ngFor="let column of config">
+                        <div class="col px-2" *ngIf="!column.isEditable && !column.isImage">
+                            <p class="heading">
+                                {{data[column.upperHeader] == undefined ? column.upperHeader : data[column.upperHeader]}}
+                                &nbsp;</p>
+                            <p class="portName">
+                                {{data[column.header] == undefined ? column.header : data[column.header]}}</p>
+                            <p class="PortCode">{{data[column.lowerHeader]}}</p>
+                        </div>
+                        <div class="col px-2" style="min-width: 115px;"
+                            *ngIf="!column.isEditable && column.isImage == true">
+                            <span class="terminalCircle"><img [src]="column.header" /></span>
+                        </div>
+                        <div class="col px-2 pt-3" *ngIf="column.isEditable">
+                            <!-- <app-simple-textbox [type]="'text'" [isHint]=true [hintText]=""
+                                [isRequired]=column.isMandatory [isFloatLabel]=true [label]="column.header"
+                                [defaultValue]="data[column.lowerHeader]" [name]="column.lowerHeader"
+                                (postInputValue)="updateInput($event, i)">
+                            </app-simple-textbox> -->
+
+                            <simple-text-box name="column.lowerHeader" inputType="text" required="true" label="column.header" [(inputValue)]="data[column.lowerHeader]"></simple-text-box>
+ 
+
+                        </div>
+                    </td>
+
+                </div>
+            </div>
+        </div>
+    </tr>
+
+</table>
